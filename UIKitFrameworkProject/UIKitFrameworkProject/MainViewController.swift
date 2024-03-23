@@ -13,7 +13,8 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let customFont = UIFont.systemFont(ofSize: 30)
+        let size = UIFont.buttonFontSize
+        let customFont = UIFont.systemFont(ofSize: size)
         firstLabel.text = "Yo yo world!!!"
         firstLabel.font = customFont
     }

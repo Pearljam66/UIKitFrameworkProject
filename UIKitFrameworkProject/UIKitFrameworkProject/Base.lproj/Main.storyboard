@@ -15,23 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fut-CG-BAQ" userLabel="First Label">
-                                <rect key="frame" x="35" y="110" width="309" height="68"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mv0-rD-8Di">
+                                <rect key="frame" x="16" y="179" width="111" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="First ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.043521729314817244" green="0.15403606090084049" blue="0.2048019255050505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="20"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Label">
-                                        <attributes>
-                                            <color key="NSColor" red="0.043521729314817244" green="0.15403606090084049" blue="0.2048019255050505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="36"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="showCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BWx-Yd-sFn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pressed: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcJ-GL-Iqq">
+                                <rect key="frame" x="31" y="113" width="118" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -39,7 +36,7 @@
                         <color key="backgroundColor" red="0.14214412965788156" green="0.73132957421775902" blue="0.89514608400178253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="firstLabel" destination="fut-CG-BAQ" id="eMr-HA-wGZ"/>
+                        <outlet property="firstLabel" destination="tcJ-GL-Iqq" id="bxB-KA-fBA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

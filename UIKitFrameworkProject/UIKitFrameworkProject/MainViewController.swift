@@ -14,16 +14,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let oldText = firstLabel.attributedText {
-            if let attrText = try? AttributedString(oldText, including: \.uiKit) {
-                var myText = attrText
-                myText.foregroundColor = .systemBlue
-                firstLabel.attributedText = NSAttributedString(myText)
-            }
-        }
+        var myText = AttributedString("Act II Cowboy Carter")
 
+        let startIndex = myText.characters.startIndex
+        let endIndex = myText.characters.index(startIndex, offsetBy: 6)
+
+        myText[startIndex...endIndex].font = UIFont.systemFont(ofSize: 24)
+        myText[startIndex...endIndex].foregroundColor = .systemRed
+        firstLabel.attributedText = NSAttributedString(myText)
     }
-
-
 }
 

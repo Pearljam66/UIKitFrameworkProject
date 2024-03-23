@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var myTitle: UILabel!
+    @IBOutlet weak var firstLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

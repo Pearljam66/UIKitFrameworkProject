@@ -14,14 +14,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var myText = AttributedString("Act II Cowboy Carter")
+        var myText = NSMutableAttributedString(string: "Act II Cowboy Carter")
+        myText.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .largeTitle), range: NSRange(location: 0, length: myText.length))
 
-        let startIndex = myText.characters.startIndex
-        let endIndex = myText.characters.index(startIndex, offsetBy: 6)
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.systemGray
+        shadow.shadowOffset = CGSize(width: 2, height: 2)
+        shadow.shadowBlurRadius = 5
+        myText.addAttribute(.shadow, value: shadow, range: NSRange(location: 0, length: myText.length))
 
-        myText[startIndex...endIndex].font = UIFont.systemFont(ofSize: 24)
-        myText[startIndex...endIndex].foregroundColor = .systemRed
-        firstLabel.attributedText = NSAttributedString(myText)
+        firstLabel.attributedText = myText
     }
 }
-

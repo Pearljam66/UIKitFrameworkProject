@@ -10,14 +10,21 @@ import UIKit
 class MainViewController: UIViewController {
     var counter: Int = 0
     @IBOutlet weak var sarahButton: UIButton!
+    @IBOutlet weak var sarahLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sarahButton.addAction(UIAction(handler: {
-            [unowned self] action in
-            print("Button pressed!!!")
-            sarahButton.isEnabled = false
-        }), for: .touchUpInside)
+        sarahButton.changesSelectionAsPrimaryAction = true
+        sarahButton.isSelected = false
     }
+
+    @IBAction func turnOption(_ sender: UIButton) {
+        if sender.isSelected {
+            sarahLabel.text = "Onnnn!"
+        } else {
+            sarahLabel.text = "Offff!"
+        }
+    }
+    
 }

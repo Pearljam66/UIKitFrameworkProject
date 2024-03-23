@@ -16,7 +16,8 @@ class MainViewController: UIViewController {
 
         sarahButton.addAction(UIAction(handler: {
             [unowned self] action in
-            print("The value of the counter is: \(counter)")
+            print("Button pressed!!!")
+            sarahButton.isEnabled = false
         }), for: .touchUpInside)
     }
 }

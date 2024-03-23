@@ -9,12 +9,19 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var addButton: UIButton!
+
+    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var firstLabel: UILabel!
     var counter: Int = 0
 
     @IBAction func addToCounter(_ sender: UIButton) {
         counter += 1
         firstLabel.text = "Pressed: \(counter)"
+
+        var addButtonConfiguration = addButton.configuration
+        addButtonConfiguration?.title = "Adding \(counter)"
+        addButton.configuration = addButtonConfiguration
     }
 
     @IBAction func removeFromCounter(_ sender: UIButton) {
@@ -22,7 +29,9 @@ class MainViewController: UIViewController {
         if counter >= 0 {
             firstLabel.text = "Pressed: \(counter)"
         } else {
-            firstLabel.text = "Pressed: 0"
+            var removeButtonConfiguration = removeButton.configuration
+            removeButtonConfiguration?.title = "Can't press this!"
+            removeButton.configuration = removeButtonConfiguration
         }
     }
 

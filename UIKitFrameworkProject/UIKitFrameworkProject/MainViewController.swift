@@ -13,9 +13,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myFont = UIFont.preferredFont(forTextStyle: .headline)
+        let customFont = UIFont(name: "American Typewriter", size: 30)
         firstLabel.text = "Yo yo world!!!"
-        firstLabel.font = myFont
+        firstLabel.font = customFont
     }
 
 

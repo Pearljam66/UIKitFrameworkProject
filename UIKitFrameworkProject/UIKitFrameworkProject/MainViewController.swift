@@ -13,11 +13,13 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = UIFont.buttonFontSize
-        let customFont = UIFont.systemFont(ofSize: size)
-        firstLabel.text = "Beyonce's new album will be out Friday!!!"
+        let customFont = UIFont.systemFont(ofSize: 30)
+        firstLabel.text = "Act II Cowboy Carter"
         firstLabel.lineBreakMode = .byClipping
         firstLabel.font = customFont
+        firstLabel.textColor = UIColor.systemBlue
+        firstLabel.shadowColor = UIColor.systemGray
+        firstLabel.shadowOffset = CGSize(width: 2, height: 2)
     }
 
 

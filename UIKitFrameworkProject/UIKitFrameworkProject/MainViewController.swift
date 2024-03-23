@@ -12,12 +12,22 @@ class MainViewController: UIViewController {
     @IBOutlet weak var firstLabel: UILabel!
     var counter: Int = 0
 
-    @IBAction func showCounter(_ sender: UIButton) {
+    @IBAction func addToCounter(_ sender: UIButton) {
         counter += 1
         firstLabel.text = "Pressed: \(counter)"
     }
+
+    @IBAction func removeFromCounter(_ sender: UIButton) {
+        counter -= 1
+        if counter >= 0 {
+            firstLabel.text = "Pressed: \(counter)"
+        } else {
+            firstLabel.text = "Pressed: 0"
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 }

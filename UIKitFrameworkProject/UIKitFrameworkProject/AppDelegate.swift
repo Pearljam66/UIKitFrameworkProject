@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var basicSalary: Double!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        basicSalary = 30000.0
         return true
     }
 

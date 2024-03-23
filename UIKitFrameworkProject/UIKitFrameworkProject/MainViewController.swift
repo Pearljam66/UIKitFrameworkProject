@@ -8,23 +8,21 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var counter: Int = 0
     @IBOutlet weak var sarahButton: UIButton!
-    @IBOutlet weak var sarahLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        sarahButton.showsMenuAsPrimaryAction = true
 
-        sarahButton.changesSelectionAsPrimaryAction = true
-        sarahButton.isSelected = false
+        sarahButton.menu = UIMenu(children: [
+            UIAction(title: "Option 1", handler: selectOption),
+            UIAction(title: "Option 2", handler: selectOption),
+            UIAction(title: "Option 3", handler: selectOption)
+        ])
     }
 
-    @IBAction func turnOption(_ sender: UIButton) {
-        if sender.isSelected {
-            sarahLabel.text = "Onnnn!"
-        } else {
-            sarahLabel.text = "Offff!"
-        }
+    func selectOption(action: UIAction) {
+        print(action.title)
     }
-    
+
 }

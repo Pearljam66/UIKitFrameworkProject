@@ -13,13 +13,15 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let customFont = UIFont.systemFont(ofSize: 30)
-        firstLabel.text = "Act II Cowboy Carter"
-        firstLabel.lineBreakMode = .byClipping
-        firstLabel.font = customFont
-        firstLabel.textColor = UIColor.systemBlue
-        firstLabel.shadowColor = UIColor.systemGray
-        firstLabel.shadowOffset = CGSize(width: 2, height: 2)
+
+        if let oldText = firstLabel.attributedText {
+            if let attrText = try? AttributedString(oldText, including: \.uiKit) {
+                var myText = attrText
+                myText.foregroundColor = .systemBlue
+                firstLabel.attributedText = NSAttributedString(myText)
+            }
+        }
+
     }
 
 

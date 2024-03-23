@@ -16,12 +16,16 @@ class MainViewController: UIViewController {
 
         var myText = AttributedString("Act II Cowboy Carter")
 
-        // AttributeContainer provides a way to store attributes and their values outside of an attributed string.
-        var container = AttributeContainer()
-        container.font = UIFont.preferredFont(forTextStyle: .body)
-        container.backgroundColor = .systemGray4
-        myText.setAttributes(container)
+        if let range = myText.range(of: "Cowboy Carter") {
+            myText[range].backgroundColor = .systemRed
+        }
 
+        for run in myText.runs {
+            if run.attributes.backgroundColor == .systemRed {
+                let range = run.range
+                myText[range].backgroundColor = .systemGray4
+            }
+        }
         firstLabel.attributedText = NSAttributedString(myText)
     }
 }

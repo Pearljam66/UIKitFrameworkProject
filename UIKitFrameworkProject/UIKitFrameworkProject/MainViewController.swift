@@ -15,7 +15,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         let size = UIFont.buttonFontSize
         let customFont = UIFont.systemFont(ofSize: size)
-        firstLabel.text = "Yo yo world!!!"
+        firstLabel.text = "Beyonce's new album will be out Friday!!!"
+        firstLabel.lineBreakMode = .byClipping
         firstLabel.font = customFont
     }
 

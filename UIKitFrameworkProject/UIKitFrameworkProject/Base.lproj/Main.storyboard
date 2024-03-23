@@ -21,6 +21,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Button"/>
                                 <connections>
+                                    <action selector="processOptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EiO-c0-nLL"/>
                                     <action selector="turnOption:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c5T-ko-5Nd"/>
                                 </connections>
                             </button>

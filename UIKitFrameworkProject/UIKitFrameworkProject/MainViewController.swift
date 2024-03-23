@@ -22,11 +22,14 @@ class MainViewController: UIViewController {
         ])
     }
 
-    func selectOption(action: UIAction) {
-        let id = action.identifier.rawValue
-        if id == "1" {
-            print(action.title)
+    @IBAction func processOptions(_ sender: UIButton) {
+        if let selected = sarahButton.menu?.selectedElements.first as? UIAction {
+            print("Selected: \(selected.title)")
         }
+    }
+
+    func selectOption(action: UIAction) {
+        print(action.title)
     }
 
 }

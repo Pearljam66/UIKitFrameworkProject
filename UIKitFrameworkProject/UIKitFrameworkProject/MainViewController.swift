@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sarahButton.showsMenuAsPrimaryAction = true
+        sarahButton.changesSelectionAsPrimaryAction = true
 
         sarahButton.menu = UIMenu(children: [
             UIAction(title: "Option 1", identifier: UIAction.Identifier("1"), handler: selectOption),

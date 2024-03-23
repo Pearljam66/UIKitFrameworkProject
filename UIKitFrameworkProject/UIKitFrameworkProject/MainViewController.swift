@@ -23,9 +23,8 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func processOptions(_ sender: UIButton) {
-        if let selected = sarahButton.menu?.selectedElements.first as? UIAction {
-            print("Selected: \(selected.title)")
-        }
+        let action = sarahButton.menu?.children[1] as? UIAction
+        action?.state = .on
     }
 
     func selectOption(action: UIAction) {

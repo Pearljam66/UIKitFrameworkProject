@@ -14,15 +14,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var myText = NSMutableAttributedString(string: "Act II Cowboy Carter")
-        myText.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .largeTitle), range: NSRange(location: 0, length: myText.length))
+        var myText = AttributedString("Act II Cowboy Carter")
 
-        let shadow = NSShadow()
-        shadow.shadowColor = UIColor.systemGray
-        shadow.shadowOffset = CGSize(width: 2, height: 2)
-        shadow.shadowBlurRadius = 5
-        myText.addAttribute(.shadow, value: shadow, range: NSRange(location: 0, length: myText.length))
+        // AttributeContainer provides a way to store attributes and their values outside of an attributed string.
+        var container = AttributeContainer()
+        container.font = UIFont.preferredFont(forTextStyle: .body)
+        container.backgroundColor = .systemGray4
+        myText.setAttributes(container)
 
-        firstLabel.attributedText = myText
+        firstLabel.attributedText = NSAttributedString(myText)
     }
 }

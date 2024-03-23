@@ -12,14 +12,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var buttonConfiguration = UIButton.Configuration.tinted()
-        buttonConfiguration.title = "Press me!"
-        buttonConfiguration.subtitle = "Dooo iiiiitt"
-        buttonConfiguration.baseBackgroundColor = .systemCyan
 
-        let sarahButton = UIButton(configuration: buttonConfiguration, primaryAction: UIAction(handler: {
-            [unowned self] action in
-            print("Value of counter is: \(counter)")
+        let sarahButton = UIButton(configuration: .filled(), primaryAction: UIAction(title: "Press Here", handler:  {[unowned self] action in
+            print("Value of the counter is \(counter)")
             counter += 1
         }))
         sarahButton.frame = CGRect(x: 100, y: 200, width: 150, height: 50)

@@ -8,27 +8,33 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var sarahButton: UIButton!
 
+    @IBOutlet var buttons: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sarahButton.showsMenuAsPrimaryAction = true
-        sarahButton.changesSelectionAsPrimaryAction = true
 
-        sarahButton.menu = UIMenu(children: [
-            UIAction(title: "Option 1", identifier: UIAction.Identifier("1"), handler: selectOption),
-            UIAction(title: "Option 2", identifier: UIAction.Identifier("2"), handler: selectOption),
-            UIAction(title: "Option 3", identifier: UIAction.Identifier("3"), handler: selectOption)
-        ])
     }
 
-    @IBAction func processOptions(_ sender: UIButton) {
-        let action = sarahButton.menu?.children[1] as? UIAction
-        action?.state = .on
+    @IBAction func sayHello(_ sender: UIButton) {
+        print("Hello!")
     }
 
-    func selectOption(action: UIAction) {
-        print(action.title)
+    @IBAction func sayGoodbye(_ sender: UIButton) {
+        print("Goodbye!")
     }
+    
+    @IBAction func disableButtons(_ sender: UIButton) {
+        for button in buttons {
+            button.isEnabled = false
+        }
+    }
+
+    @IBAction func enableButtons(_ sender: UIButton) {
+        for button in buttons {
+            button.isEnabled = true
+        }
+    }
+    
 
 }

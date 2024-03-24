@@ -9,25 +9,14 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var myTitle: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Indicates whether the button tracks a selection, either through a menu or a toggle.
-        button.changesSelectionAsPrimaryAction = true
-        activity.color = .systemRed
-        activity.style = .large
-    }
-
-    @IBAction func turnOnAndOff(_ sender: UIButton) {
-        if activity.isAnimating {
-            activity.stopAnimating()
-            button.setTitle("Turn On", for: .normal)
-        } else {
-            activity.startAnimating()
-            button.setTitle("Turn Off", for: .selected)
+    @IBAction func changeOption(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            myTitle.textColor = .label
+        } else if sender.selectedSegmentIndex == 1 {
+            myTitle.textColor = .systemRed
         }
     }
+    
 }

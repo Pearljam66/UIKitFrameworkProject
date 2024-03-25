@@ -32,6 +32,7 @@
                     </view>
                     <connections>
                         <outlet property="progress" destination="p9N-jV-qfG" id="Obl-DU-TAl"/>
+                        <outlet property="slider" destination="wA6-51-O8R" id="GsJ-gi-FLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

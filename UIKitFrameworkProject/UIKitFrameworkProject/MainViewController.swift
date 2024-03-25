@@ -8,20 +8,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleInput: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stepper.value = 0.0
-        stepper.minimumValue = 0.0
-        stepper.maximumValue = 10.0
-        stepper.stepValue = 1.0
     }
 
-    @IBAction func increment(_ sender: UIStepper) {
-        counterLabel.text = String(sender.value)
+    @IBAction func changeTitle(_ sender: UIButton) {
+        if titleInput.text != "" {
+            titleLabel.text = titleInput.text
+            titleInput.text = ""
+        }
     }
-
+    
 }

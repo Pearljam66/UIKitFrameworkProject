@@ -22,6 +22,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.backgroundColor = .systemRed
+    }
+
     @IBAction func changeTitle(_ sender: UIButton) {
         assignTitle()
     }

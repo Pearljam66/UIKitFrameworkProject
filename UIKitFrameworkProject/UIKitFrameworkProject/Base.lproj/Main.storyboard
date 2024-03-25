@@ -41,6 +41,7 @@
                     </view>
                     <connections>
                         <outlet property="myTitle" destination="wDI-FJ-ieV" id="nDL-Zx-5kc"/>
+                        <outlet property="options" destination="TzL-Zn-fLx" id="2mB-rc-fOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

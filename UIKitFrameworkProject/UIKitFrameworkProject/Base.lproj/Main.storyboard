@@ -35,6 +35,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="sarahSwitch" destination="kgu-OQ-R6L" id="CKP-iY-vOJ"/>
                         <outlet property="switchValueLabel" destination="pPV-bx-IrQ" id="y13-v3-xIN"/>
                     </connections>
                 </viewController>

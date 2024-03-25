@@ -7,12 +7,14 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleInput: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // assigns the MainViewController as the delegate of the titleInput text field.
+        titleInput.delegate = self
     }
 
     @IBAction func changeTitle(_ sender: UIButton) {
@@ -26,5 +28,9 @@ class MainViewController: UIViewController {
             titleInput.isEnabled = false
         }
     }
-    
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+
 }

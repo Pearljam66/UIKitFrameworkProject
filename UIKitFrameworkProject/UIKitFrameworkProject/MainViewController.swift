@@ -29,8 +29,14 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return false
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text {
+            let total = text.count + string.count - range.length
+            if total > 10 {
+                return false
+            }
+        }
+        return true
     }
 
 }

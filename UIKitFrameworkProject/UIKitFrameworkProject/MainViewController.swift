@@ -17,23 +17,17 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         titleInput.delegate = self
     }
 
-    @IBAction func changeTitle(_ sender: UIButton) {
-        var text = titleInput.text!
-        text = text.trimmingCharacters(in: .whitespaces)
-
-        if !text.isEmpty {
-            titleLabel.text = text
-            titleInput.text = ""
-            titleInput.placeholder = "Text Field Disabled"
-            titleInput.isEnabled = false
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        assignTitle()
+        return true
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (Int(string) != nil && textField.text != "0") || string == "" {
-            return true
-        }
-        return false
+    @IBAction func changeTitle(_ sender: UIButton) {
+        assignTitle()
+    }
+
+    func assignTitle() {
+        titleLabel.text = titleInput.text
     }
 
 }

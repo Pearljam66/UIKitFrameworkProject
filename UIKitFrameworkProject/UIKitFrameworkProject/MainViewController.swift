@@ -16,8 +16,11 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func changeTitle(_ sender: UIButton) {
-        if titleInput.text != "" {
-            titleLabel.text = titleInput.text
+        var text = titleInput.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+
+        if !text.isEmpty {
+            titleLabel.text = text
             titleInput.text = ""
         }
     }

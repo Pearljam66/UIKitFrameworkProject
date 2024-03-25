@@ -19,14 +19,25 @@ class MainViewController: UIViewController {
         options.setAction(UIAction(title: "Red", image: nil, handler: { action in
             print("Red pressed")
         }), forSegmentAt: 1)
+
+        let total = options.numberOfSegments
+        options.insertSegment(action: UIAction(title: "Blue", image: nil, handler: { action in
+            print("Blue Pressed")
+        }), at: total, animated: false)
+
     }
 
     @IBAction func changeOption(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            myTitle.textColor = .label
-        } else if sender.selectedSegmentIndex == 1 {
-            myTitle.textColor = .systemRed
+        switch sender.selectedSegmentIndex {
+            case 0:
+                myTitle.textColor = .label
+            case 1:
+                myTitle.textColor = .systemRed
+            case 2:
+                myTitle.textColor = .systemBlue
+            default:
+                myTitle.textColor = .label
         }
     }
-    
+
 }

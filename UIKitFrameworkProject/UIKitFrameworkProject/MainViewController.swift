@@ -30,13 +30,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text {
-            let total = text.count + string.count - range.length
-            if total > 10 {
-                return false
-            }
+        if (Int(string) != nil && textField.text != "0") || string == "" {
+            return true
         }
-        return true
+        return false
     }
 
 }

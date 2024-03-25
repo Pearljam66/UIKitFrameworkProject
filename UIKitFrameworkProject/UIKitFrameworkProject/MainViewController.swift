@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
         if !text.isEmpty {
             titleLabel.text = text
             titleInput.text = ""
+            titleInput.placeholder = "Text Field Disabled"
+            titleInput.isEnabled = false
         }
     }
     

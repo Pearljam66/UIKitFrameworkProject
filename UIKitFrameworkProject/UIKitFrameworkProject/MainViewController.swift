@@ -10,28 +10,29 @@ import UIKit
 class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleInput: UITextField!
+    @IBOutlet weak var subtitleInput: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // assigns the MainViewController as the delegate of the titleInput text field.
         titleInput.delegate = self
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        assignTitle()
-        return true
+        subtitleInput.delegate = self
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.backgroundColor = .systemRed
     }
 
-    @IBAction func changeTitle(_ sender: UIButton) {
-        assignTitle()
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.backgroundColor = .white
     }
 
-    func assignTitle() {
-        titleLabel.text = titleInput.text
+    @IBAction func changeTitle(_ sender: UIButton) {
+        if titleInput.text != "" && subtitleInput.text != "" {
+            titleLabel.text = titleInput.text! + " - " + subtitleInput.text!
+            titleInput.text = ""
+            subtitleInput.text = ""
+        }
     }
 
 }

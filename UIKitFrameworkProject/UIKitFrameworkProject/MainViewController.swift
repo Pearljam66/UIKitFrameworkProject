@@ -7,24 +7,35 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var message: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        message.delegate = self
     }
 
-    @IBAction func selection(_ sender: UIButton) {
+    func textViewDidChange(_ textView: UITextView) {
         if let text = message.attributedText {
             if let attrText = try? AttributedString(text, including: \.uiKit) {
-                if let newRange = Range(message.selectedRange, in: attrText) {
-                    var newText = attrText
-                    newText[newRange].foregroundColor = .systemRed
-                    message.attributedText = NSAttributedString(newText)
+                let currentPosition = message.selectedRange
+                var newText = attrText
+                let chars = newText.characters
+
+                for position in chars.indices {
+                    let distance = chars.distance(from: position, to: chars.endIndex)
+                    let endPosition = chars.index(position, offsetBy: min(distance, 5))
+                    let word = String(chars[position..<endPosition])
+                    if word == "Sarah" {
+                        newText[position..<endPosition].foregroundColor = .systemBlue
+                    }
                 }
+
+                message.attributedText = NSAttributedString(newText)
+                message.selectedRange = currentPosition
             }
         }
     }
-    
+
 }

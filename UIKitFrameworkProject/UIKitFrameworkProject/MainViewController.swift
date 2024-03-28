@@ -20,9 +20,11 @@ class MainViewController: UIViewController {
         if titleInput.text != "" {
             titleLabel.text = titleInput.text
             titleInput.text = ""
-            titleInput.resignFirstResponder()
-        } else {
-            titleInput.becomeFirstResponder()
         }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        titleInput.resignFirstResponder()
     }
 }

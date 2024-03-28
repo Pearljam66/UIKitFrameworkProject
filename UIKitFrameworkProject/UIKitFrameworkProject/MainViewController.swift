@@ -7,35 +7,22 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITextViewDelegate {
+class MainViewController: UIViewController {
 
-    @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleInput: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        message.delegate = self
     }
 
-    func textViewDidChange(_ textView: UITextView) {
-        if let text = message.attributedText {
-            if let attrText = try? AttributedString(text, including: \.uiKit) {
-                let currentPosition = message.selectedRange
-                var newText = attrText
-                let chars = newText.characters
-
-                for position in chars.indices {
-                    let distance = chars.distance(from: position, to: chars.endIndex)
-                    let endPosition = chars.index(position, offsetBy: min(distance, 5))
-                    let word = String(chars[position..<endPosition])
-                    if word == "Sarah" {
-                        newText[position..<endPosition].foregroundColor = .systemBlue
-                    }
-                }
-
-                message.attributedText = NSAttributedString(newText)
-                message.selectedRange = currentPosition
-            }
+    @IBAction func changeTitle(_ sender: UIButton) {
+        if titleInput.text != "" {
+            titleLabel.text = titleInput.text
+            titleInput.text = ""
+            titleInput.resignFirstResponder()
+        } else {
+            titleInput.becomeFirstResponder()
         }
     }
-
 }

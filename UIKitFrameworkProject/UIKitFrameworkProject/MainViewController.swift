@@ -13,6 +13,15 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.year = 2010
+        components.month = 8
+        components.day = 13
+
+        if let newDate = calendar.date(from: components) {
+            datePicker.date = newDate
+        }
     }
 
     @IBAction func getDate(_ sender: UIButton) {

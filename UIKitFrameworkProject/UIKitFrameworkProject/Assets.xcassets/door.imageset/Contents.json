@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "oranges.png",
+      "filename" : "door.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "oranges@2x.png",
+      "filename" : "door@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "oranges@3x.png",
+      "filename" : "door@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -8,22 +8,23 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var myButton: UIButton!
+
+    @IBOutlet weak var pictureView: UIImageView!
+    var door: UIImage!
+    var husky: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        door = UIImage(named: "door")
+        husky = UIImage(named: "husky")
+    }
 
-        let configSize = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular)
-        let configColors = UIImage.SymbolConfiguration(paletteColors: [.systemPurple,.white])
-        let config = configSize.applying(configColors)
+    @IBAction func changePicture(_ sender: UIButton) {
+        pictureView.image = door
+    }
 
-        myButton.configurationUpdateHandler = { button in
-            var current = button.configuration
-            current?.title = "Delete comment"
-            current?.image = UIImage(systemName: "bell.badge.circle.fill", withConfiguration: config)
-            current?.imagePadding = 15
-            button.configuration = current
-        }
+    @IBAction func changeToHusky(_ sender: UIButton) {
+        pictureView.image = husky
     }
 
 }

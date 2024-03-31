@@ -13,11 +13,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .black)
+        let configSize = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular)
+        let configColors = UIImage.SymbolConfiguration(paletteColors: [.systemPurple,.white])
+        let config = configSize.applying(configColors)
+
         myButton.configurationUpdateHandler = { button in
             var current = button.configuration
             current?.title = "Delete comment"
-            current?.image = UIImage(systemName: "trash", withConfiguration: config)
+            current?.image = UIImage(systemName: "bell.badge.circle.fill", withConfiguration: config)
             current?.imagePadding = 15
             button.configuration = current
         }

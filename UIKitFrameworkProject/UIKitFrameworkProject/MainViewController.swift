@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var pictureView: UIImageView!
+    var currentActive: Bool = false
     var door: UIImage!
     var husky: UIImage!
 
@@ -20,11 +21,13 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func changePicture(_ sender: UIButton) {
-        pictureView.image = door
-    }
+        if currentActive {
+            pictureView.image = husky
+        } else {
+            pictureView.image = door
+        }
 
-    @IBAction func changeToHusky(_ sender: UIButton) {
-        pictureView.image = husky
+        currentActive.toggle()
     }
 
 }

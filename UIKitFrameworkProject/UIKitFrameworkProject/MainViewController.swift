@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
         myButton.configurationUpdateHandler = { button in
             var current = button.configuration
             current?.title = "Add comment"
-            current?.image = UIImage(systemName: "trash")
+            current?.image = UIImage(systemName: "trash.circle")
             current?.imagePadding = 15
             button.configuration = current
         }

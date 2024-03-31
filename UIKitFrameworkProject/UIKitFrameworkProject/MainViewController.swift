@@ -18,6 +18,15 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         pickerYears.delegate = self
         pickerYears.dataSource = self
         years = ["1944", "1945", "1946", "1947", "1948", "1949", "1950"]
+
+        if let index = years.firstIndex(of: "1945") {
+            pickerYears.selectRow(index, inComponent: 0, animated: false)
+        }
+    }
+
+    @IBAction func getYear(_ sender: UIButton) {
+        let row = pickerYears.selectedRow(inComponent: 0)
+        showYear.text = "The year is: \(years[row])"
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -30,11 +39,6 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return years[row]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let year = years[row]
-        showYear.text = "The year is: \(year)"
     }
 
 }

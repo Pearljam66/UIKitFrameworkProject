@@ -12,10 +12,12 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .black)
         myButton.configurationUpdateHandler = { button in
             var current = button.configuration
-            current?.title = "Add comment"
-            current?.image = UIImage(systemName: "trash.circle")
+            current?.title = "Delete comment"
+            current?.image = UIImage(systemName: "trash", withConfiguration: config)
             current?.imagePadding = 15
             button.configuration = current
         }

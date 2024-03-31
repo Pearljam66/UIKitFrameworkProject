@@ -8,11 +8,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var myButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let myPattern = UIImage(named: "Oranges") {
-            view.backgroundColor = UIColor(patternImage: myPattern)
+        myButton.configurationUpdateHandler = { button in
+            var current = button.configuration
+            current?.title = "Add comment"
+            current?.image = UIImage(systemName: "trash")
+            current?.imagePadding = 15
+            button.configuration = current
         }
     }
 

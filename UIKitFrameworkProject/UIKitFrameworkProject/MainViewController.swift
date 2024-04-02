@@ -20,6 +20,9 @@ class MainViewController: UIViewController {
         let mainScrollView = UIScrollView(frame: .zero)
         mainScrollView.contentSize = CGSize(width: imageWidth, height: imageHeight)
         mainScrollView.addSubview(imageView)
+        // property that determines how the Scroll View is going to adjust the content's offsets
+        // scrollable content will be shown in full screen
+        mainScrollView.contentInsetAdjustmentBehavior = .never
         stackContainer.addArrangedSubview(mainScrollView)
     }
 

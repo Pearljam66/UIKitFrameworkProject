@@ -7,13 +7,20 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var stackContainer: UIStackView!
+    @IBOutlet weak var pageCounter: UIPageControl!
+
+    var mainScrollView: UIScrollView!
+    var page: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let images = ["spot1", "spot2", "spot3"]
+        pageCounter.numberOfPages = images.count
+        pageCounter.pageIndicatorTintColor = .black
+        pageCounter.currentPageIndicatorTintColor = .white
 
         view.setNeedsLayout()
         view.layoutIfNeeded()
@@ -24,6 +31,7 @@ class MainViewController: UIViewController {
         mainScrollView.contentSize = CGSize(width: scrollWidth * CGFloat(images.count), height: scrollHeight)
         mainScrollView.contentInsetAdjustmentBehavior = .never
         mainScrollView.isPagingEnabled = true
+        mainScrollView.delegate = self
 
         var posX: CGFloat = 0
 
@@ -38,5 +46,14 @@ class MainViewController: UIViewController {
         }
 
         stackContainer.addArrangedSubview(mainScrollView)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageWidth = stackContainer.frame.size.width
+        let getPage = round(mainScrollView.contentOffset.x / pageWidth)
+        let currentPage = Int(getPage)
+
+        page = currentPage
+        pageCounter.currentPage = page
     }
 }

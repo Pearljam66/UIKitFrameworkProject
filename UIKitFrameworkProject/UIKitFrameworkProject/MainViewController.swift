@@ -14,7 +14,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView(image: UIImage(named: "doll"))
+        imageView = UIImageView(image: UIImage(named: "doll"))
         let imageWidth = imageView.frame.size.width
         let imageHeight = imageView.frame.size.height
 

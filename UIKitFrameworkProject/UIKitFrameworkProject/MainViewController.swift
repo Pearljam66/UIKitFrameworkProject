@@ -19,11 +19,15 @@ class MainViewController: UIViewController {
 
         let mainScrollView = UIScrollView(frame: .zero)
         mainScrollView.contentSize = CGSize(width: imageWidth, height: imageHeight)
+        mainScrollView.contentInsetAdjustmentBehavior = .never
         mainScrollView.addSubview(imageView)
 
-        let logoView = UIImageView(frame: CGRect(x: 25, y: 25, width: 249, height: 249))
-        logoView.image = UIImage(named: "logo")
+        let logoView = UIImageView(image: UIImage(named: "logo"))
+        logoView.translatesAutoresizingMaskIntoConstraints = false
         mainScrollView.addSubview(logoView)
+
+        logoView.topAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.topAnchor, constant: 25).isActive = true
+        logoView.leadingAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.leadingAnchor, constant: 25).isActive = true
 
         stackContainer.addArrangedSubview(mainScrollView)
     }

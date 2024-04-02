@@ -50,7 +50,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             imageViews.append(imageView)
 
             childScrollView.addSubview(imageView)
-            mainScrollView.addSubview(imageView)
+            mainScrollView.addSubview(childScrollView)
             posX = posX + scrollWidth
         }
         stackContainer.addArrangedSubview(mainScrollView)

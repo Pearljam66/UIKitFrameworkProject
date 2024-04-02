@@ -7,38 +7,36 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UIScrollViewDelegate {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var stackContainer: UIStackView!
-    var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let images = ["spot1", "spot2", "spot3"]
+
         view.setNeedsLayout()
         view.layoutIfNeeded()
-
-        imageView = UIImageView(image: UIImage(named: "doll"))
-        let imageWidth = imageView.frame.size.width
-        let imageHeight = imageView.frame.size.height
-
-        let mainScrollView = UIScrollView(frame: .zero)
-        mainScrollView.contentSize = CGSize(width: imageWidth, height: imageHeight)
-        mainScrollView.contentInsetAdjustmentBehavior = .never
-        mainScrollView.delegate = self
-        mainScrollView.addSubview(imageView)
-
         let scrollWidth = stackContainer.frame.size.width
         let scrollHeight = stackContainer.frame.size.height
-        let minScale = min(scrollWidth / imageWidth, scrollHeight / imageHeight)
-        let maxScale = max(minScale * 4.0, 1.0)
 
-        mainScrollView.minimumZoomScale = minScale
-        mainScrollView.maximumZoomScale = maxScale
+        let mainScrollView = UIScrollView(frame: .zero)
+        mainScrollView.contentSize = CGSize(width: scrollWidth + CGFloat(images.count), height: scrollHeight)
+        mainScrollView.contentInsetAdjustmentBehavior = .never
+        mainScrollView.isPagingEnabled = true
 
+        var posX: CGFloat = 0
+
+        for image in images {
+            let imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
+            imageView.image = UIImage(named: image)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+
+            mainScrollView.addSubview(imageView)
+            posX = posX + scrollWidth
+        }
         stackContainer.addArrangedSubview(mainScrollView)
-    }
 
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageView
     }
 }

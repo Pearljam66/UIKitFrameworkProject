@@ -28,12 +28,12 @@ class MainViewController: UIViewController {
         var posX: CGFloat = 0
 
         for image in images {
-            let imgView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-            imgView.image = UIImage(named: image)
-            imgView.contentMode = .scaleAspectFill
-            imgView.clipsToBounds = true
+            let imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
+            imageView.image = UIImage(named: image)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
 
-            mainScrollView.addSubview(imgView)
+            mainScrollView.addSubview(imageView)
             posX = posX + scrollWidth
         }
 

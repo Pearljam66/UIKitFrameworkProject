@@ -14,6 +14,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+
         imageView = UIImageView(image: UIImage(named: "doll"))
         let imageWidth = imageView.frame.size.width
         let imageHeight = imageView.frame.size.height
@@ -24,8 +27,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         mainScrollView.delegate = self
         mainScrollView.addSubview(imageView)
 
-        mainScrollView.minimumZoomScale = 1.0
-        mainScrollView.maximumZoomScale = 4.0
+        let scrollWidth = stackContainer.frame.size.width
+        let scrollHeight = stackContainer.frame.size.height
+        let minScale = min(scrollWidth / imageWidth, scrollHeight / imageHeight)
+        let maxScale = max(minScale * 4.0, 1.0)
+
+        mainScrollView.minimumZoomScale = minScale
+        mainScrollView.maximumZoomScale = maxScale
+
         stackContainer.addArrangedSubview(mainScrollView)
     }
 

@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var stackContainer: UIStackView!
+    var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +21,15 @@ class MainViewController: UIViewController {
         let mainScrollView = UIScrollView(frame: .zero)
         mainScrollView.contentSize = CGSize(width: imageWidth, height: imageHeight)
         mainScrollView.contentInsetAdjustmentBehavior = .never
+        mainScrollView.delegate = self
         mainScrollView.addSubview(imageView)
 
-        let logoView = UIImageView(image: UIImage(named: "logo"))
-        logoView.translatesAutoresizingMaskIntoConstraints = false
-        mainScrollView.addSubview(logoView)
-
-        logoView.topAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.topAnchor, constant: 25).isActive = true
-        logoView.leadingAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.leadingAnchor, constant: 25).isActive = true
-
+        mainScrollView.minimumZoomScale = 1.0
+        mainScrollView.maximumZoomScale = 4.0
         stackContainer.addArrangedSubview(mainScrollView)
     }
 
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
 }

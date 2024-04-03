@@ -39,12 +39,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             childScrollView.maximumZoomScale = 4.0
             childScrollView.delegate = self
 
-            let imageView = UIImageView(frame:.zero)
+            let imageView = UIImageView(frame: .zero)
             imageView.image = UIImage(named: image)
             imageView.contentMode = .scaleAspectFit
             imageView.clipsToBounds = true
             imageViews.append(imageView)
-
             childScrollView.addSubview(imageView)
             mainScrollView.addSubview(childScrollView)
         }
@@ -58,7 +57,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         let scrollHeight = stackContainer.frame.size.height
 
         var posX: CGFloat = 0
-
         for imageView in imageViews {
             let scroll = imageView.superview as! UIScrollView
             scroll.frame = CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight)
@@ -66,7 +64,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             imageView.frame = CGRect(x: 0, y: 0, width: scrollWidth, height: scrollHeight)
             posX = posX + scrollWidth
         }
-
         mainScrollView.contentSize = CGSize(width: scrollWidth * CGFloat(imageViews.count), height: scrollHeight)
 
         let scrollView = imageViews[page].superview as! UIScrollView
@@ -92,12 +89,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         return imageViews[page]
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
         rotating = true
-        coordinator.animate(alongsideTransition: nil, completion: {
-            (context: UIViewControllerTransitionCoordinatorContext!) in
+        coordinator.animate(alongsideTransition: nil, completion: {(context: UIViewControllerTransitionCoordinatorContext!) in
             let scroll = self.imageViews[self.page].superview as! UIScrollView
             scroll.setZoomScale(1.0, animated: true)
 

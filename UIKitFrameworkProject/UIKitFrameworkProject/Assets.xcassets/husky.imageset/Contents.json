@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "spot1.jpg",
+      "filename" : "husky.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "spot1@2x.jpg",
+      "filename" : "husky@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "spot1@3x.jpg",
+      "filename" : "husky@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

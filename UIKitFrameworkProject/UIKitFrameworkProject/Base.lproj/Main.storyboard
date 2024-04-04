@@ -15,34 +15,121 @@
                     <view key="view" contentMode="scaleToFill" id="rYP-nc-JVK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-St-VUV">
+                                <rect key="frame" x="103" y="189" width="185" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="gfc-iM-zxL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show Husky">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="sVQ-uS-Exm" kind="presentation" id="CPD-Px-qVQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-ps-7pe">
+                                <rect key="frame" x="116" y="283" width="163" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WcL-1t-i3v"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show Door"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xym-AC-sMb">
+                                <rect key="frame" x="166" y="117" width="59" height="26.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Bgv-bt-xtf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2tg-St-VUV" firstAttribute="top" secondItem="Xym-AC-sMb" secondAttribute="bottom" constant="45.333333333333371" id="0Pj-pm-r0Y"/>
+                            <constraint firstItem="Xym-AC-sMb" firstAttribute="centerX" secondItem="bqR-ps-7pe" secondAttribute="centerX" constant="-2" id="14q-Ja-X52"/>
+                            <constraint firstItem="Xym-AC-sMb" firstAttribute="leading" secondItem="Bgv-bt-xtf" secondAttribute="leading" constant="166" id="17N-Wc-J30"/>
+                            <constraint firstItem="bqR-ps-7pe" firstAttribute="leading" secondItem="Bgv-bt-xtf" secondAttribute="leading" constant="116" id="8S0-kg-lxo"/>
+                            <constraint firstItem="Bgv-bt-xtf" firstAttribute="bottom" secondItem="bqR-ps-7pe" secondAttribute="bottom" constant="490" id="AZI-Oo-eEQ"/>
+                            <constraint firstItem="2tg-St-VUV" firstAttribute="leading" secondItem="Bgv-bt-xtf" secondAttribute="leading" constant="103" id="KsM-z2-ynA"/>
+                            <constraint firstItem="Xym-AC-sMb" firstAttribute="top" secondItem="Bgv-bt-xtf" secondAttribute="top" constant="14" id="iZB-e5-oDX"/>
+                            <constraint firstItem="bqR-ps-7pe" firstAttribute="top" secondItem="2tg-St-VUV" secondAttribute="bottom" constant="52" id="mhd-iM-MGO"/>
+                            <constraint firstItem="2tg-St-VUV" firstAttribute="centerX" secondItem="Xym-AC-sMb" secondAttribute="centerX" id="zQy-UJ-d2E"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5qG-hm-4de"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-802" y="-613"/>
+            <point key="canvasLocation" x="124.42748091603053" y="-613.38028169014092"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="HIR-Uy-UW8">
             <objects>
                 <viewController id="sVQ-uS-Exm" customClass="SecondViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lQn-Sf-t1E">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfy-lt-jJw">
+                                <rect key="frame" x="16" y="59" width="93" height="52"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Close"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftV-jx-Aif">
+                                <rect key="frame" x="163" y="67" width="66" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="rjJ-al-dqJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gf2-xt-N4L">
+                                <rect key="frame" x="235.66666666666666" y="70" width="117.33333333333334" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="UbV-o8-yJU"/>
+                                </constraints>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="husky" translatesAutoresizingMaskIntoConstraints="NO" id="7ws-of-DXl">
+                                <rect key="frame" x="16" y="177" width="361" height="409"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ARG-FK-aS8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7ws-of-DXl" firstAttribute="top" secondItem="sfy-lt-jJw" secondAttribute="bottom" constant="66" id="1WO-rX-s5g"/>
+                            <constraint firstItem="7ws-of-DXl" firstAttribute="trailing" secondItem="lQn-Sf-t1E" secondAttribute="trailingMargin" id="3KB-9a-9zn"/>
+                            <constraint firstItem="sfy-lt-jJw" firstAttribute="leading" secondItem="7ws-of-DXl" secondAttribute="leading" id="Eu7-Sy-bpH"/>
+                            <constraint firstItem="sfy-lt-jJw" firstAttribute="centerY" secondItem="ftV-jx-Aif" secondAttribute="centerY" id="GAD-lv-a14"/>
+                            <constraint firstItem="ftV-jx-Aif" firstAttribute="leading" secondItem="sfy-lt-jJw" secondAttribute="trailing" constant="54" id="JZP-jX-TOS"/>
+                            <constraint firstItem="ARG-FK-aS8" firstAttribute="trailing" secondItem="gf2-xt-N4L" secondAttribute="trailing" constant="42" id="Pkn-hT-s1L"/>
+                            <constraint firstItem="ARG-FK-aS8" firstAttribute="bottom" secondItem="7ws-of-DXl" secondAttribute="bottom" constant="256" id="Qsi-oK-aBd"/>
+                            <constraint firstItem="ftV-jx-Aif" firstAttribute="centerY" secondItem="gf2-xt-N4L" secondAttribute="centerY" id="WEU-kz-SdM"/>
+                            <constraint firstItem="ftV-jx-Aif" firstAttribute="centerX" secondItem="7ws-of-DXl" secondAttribute="centerX" id="aj6-Xe-zPW"/>
+                            <constraint firstItem="gf2-xt-N4L" firstAttribute="top" secondItem="ARG-FK-aS8" secondAttribute="top" constant="70" id="g5O-rO-1zV"/>
+                            <constraint firstItem="sfy-lt-jJw" firstAttribute="top" secondItem="ARG-FK-aS8" secondAttribute="top" constant="59" id="gv6-4c-Dpw"/>
+                            <constraint firstItem="ftV-jx-Aif" firstAttribute="top" secondItem="ARG-FK-aS8" secondAttribute="top" constant="67" id="nbi-Ny-KM9"/>
+                            <constraint firstItem="sfy-lt-jJw" firstAttribute="leading" secondItem="lQn-Sf-t1E" secondAttribute="leadingMargin" id="oCG-V8-xiS"/>
+                            <constraint firstItem="gf2-xt-N4L" firstAttribute="leading" secondItem="ftV-jx-Aif" secondAttribute="trailing" constant="8" id="xBP-J5-ZWF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbT-sQ-imE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="-613"/>
+            <point key="canvasLocation" x="1031.2977099236641" y="-613.38028169014092"/>
         </scene>
     </scenes>
     <resources>
+        <image name="husky" width="300" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

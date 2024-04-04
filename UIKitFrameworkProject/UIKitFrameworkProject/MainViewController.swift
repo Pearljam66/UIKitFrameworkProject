@@ -7,24 +7,42 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    @IBOutlet weak var picture: UIImageView!
-    var previous: CGFloat = 0
+class MainViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBAction func fadingOut(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: picture)
-        let delta = translation.x - previous
-        let width = picture.frame.size.width
-        let alpha = picture.alpha + (delta / width)
+    @IBOutlet weak var stackContainer: UIStackView!
 
-        if alpha > 0.1 && alpha < 1 {
-            picture.alpha = alpha
-        }
-        if sender.state == .ended {
-            previous = 0
-        } else {
-            previous = translation.x
-        }
+    var mainScrollView: UIScrollView!
+    var image: UIImageView!
+    var zooming = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        image = UIImageView(image: UIImage(named: "doll"))
+
+        mainScrollView = UIScrollView(frame: .zero)
+        mainScrollView.contentSize = CGSize(width: image.frame.size.width, height: image.frame.size.width)
+        mainScrollView.minimumZoomScale = 1.0
+        mainScrollView.maximumZoomScale = 4.0
+        mainScrollView.delegate = self
+        mainScrollView.addSubview(image)
+
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(zoomPicture))
+        mainScrollView.addGestureRecognizer(gesture)
+        stackContainer.addArrangedSubview(mainScrollView)
     }
 
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return image
+    }
+
+    @objc func zoomPicture(sender: UITapGestureRecognizer) {
+        if !zooming {
+            let position = sender.location(in: mainScrollView)
+            mainScrollView.zoom(to: CGRect(x: position.x, y: position.y, width: 1, height: 1), animated: true)
+            zooming = true
+        } else {
+            mainScrollView.setZoomScale(1.0, animated: true)
+            zooming = false
+        }
+    }
 }

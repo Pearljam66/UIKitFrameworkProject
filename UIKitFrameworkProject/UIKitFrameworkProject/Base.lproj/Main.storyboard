@@ -16,40 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="husky" translatesAutoresizingMaskIntoConstraints="NO" id="ArY-kM-tgx">
-                                <rect key="frame" x="16" y="133" width="361" height="469"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="LDf-SJ-C00" appends="YES" id="oCM-PY-3jl"/>
-                                </connections>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvY-zG-Rnm">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bgv-bt-xtf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ArY-kM-tgx" firstAttribute="top" secondItem="Bgv-bt-xtf" secondAttribute="top" constant="74" id="16Z-BI-yw0"/>
-                            <constraint firstItem="ArY-kM-tgx" firstAttribute="leading" secondItem="rYP-nc-JVK" secondAttribute="leadingMargin" id="N6J-Nn-IUt"/>
-                            <constraint firstItem="ArY-kM-tgx" firstAttribute="trailing" secondItem="rYP-nc-JVK" secondAttribute="trailingMargin" id="eu6-nT-kcK"/>
-                            <constraint firstItem="Bgv-bt-xtf" firstAttribute="bottom" secondItem="ArY-kM-tgx" secondAttribute="bottom" constant="216" id="nfz-Ty-itQ"/>
+                            <constraint firstItem="GvY-zG-Rnm" firstAttribute="top" secondItem="rYP-nc-JVK" secondAttribute="topMargin" constant="-59" id="37n-hY-I5b"/>
+                            <constraint firstItem="GvY-zG-Rnm" firstAttribute="centerY" secondItem="rYP-nc-JVK" secondAttribute="centerY" id="Cqn-wh-slA"/>
+                            <constraint firstItem="GvY-zG-Rnm" firstAttribute="leading" secondItem="Bgv-bt-xtf" secondAttribute="leading" id="NBe-xD-1Uy"/>
+                            <constraint firstItem="GvY-zG-Rnm" firstAttribute="centerX" secondItem="rYP-nc-JVK" secondAttribute="centerX" id="xec-Ew-f7r"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="picture" destination="ArY-kM-tgx" id="8Kt-Nk-A4s"/>
+                        <outlet property="stackContainer" destination="GvY-zG-Rnm" id="ZhO-vp-YV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="LDf-SJ-C00">
-                    <connections>
-                        <action selector="fadingOut:" destination="BYZ-38-t0r" id="MG7-M9-QkJ"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <image name="husky" width="300" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,10 +18,15 @@
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="husky" translatesAutoresizingMaskIntoConstraints="NO" id="ArY-kM-tgx">
                                 <rect key="frame" x="16" y="133" width="361" height="469"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LDf-SJ-C00" appends="YES" id="oCM-PY-3jl"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bgv-bt-xtf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ArY-kM-tgx" firstAttribute="top" secondItem="Bgv-bt-xtf" secondAttribute="top" constant="74" id="16Z-BI-yw0"/>
                             <constraint firstItem="ArY-kM-tgx" firstAttribute="leading" secondItem="rYP-nc-JVK" secondAttribute="leadingMargin" id="N6J-Nn-IUt"/>
@@ -36,7 +41,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="LDf-SJ-C00">
                     <connections>
-                        <action selector="fadingOut:" destination="BYZ-38-t0r" id="EPV-G0-gnh"/>
+                        <action selector="fadingOut:" destination="BYZ-38-t0r" id="MG7-M9-QkJ"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

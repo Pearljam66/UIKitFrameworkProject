@@ -27,7 +27,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="sVQ-uS-Exm" kind="presentation" id="qAm-HJ-lmj"/>
+                                    <segue destination="sVQ-uS-Exm" kind="presentation" identifier="showHusky" id="qAm-HJ-lmj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-ps-7pe">
@@ -37,6 +37,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Show Door"/>
+                                <connections>
+                                    <segue destination="7Fo-cQ-MQL" kind="presentation" identifier="showDoor" id="2rg-ld-xZc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xym-AC-sMb">
                                 <rect key="frame" x="166" y="117" width="59" height="26.666666666666657"/>
@@ -80,7 +83,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Close"/>
                                 <connections>
-                                    <segue destination="oH2-pj-JPu" kind="unwind" unwindAction="goBack:" id="zlS-KO-D3M"/>
+                                    <segue destination="oH2-pj-JPu" kind="unwind" identifier="removeHusky" unwindAction="goBack:" id="zlS-KO-D3M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftV-jx-Aif">
@@ -132,8 +135,71 @@
             </objects>
             <point key="canvasLocation" x="1031.2977099236641" y="-613.38028169014092"/>
         </scene>
+        <!--Third View Controller-->
+        <scene sceneID="aNI-bu-t98">
+            <objects>
+                <viewController id="7Fo-cQ-MQL" customClass="ThirdViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v3s-IS-hOg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="door" translatesAutoresizingMaskIntoConstraints="NO" id="A34-lw-s8L">
+                                <rect key="frame" x="31" y="178" width="334" height="401"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-gm-wqD">
+                                <rect key="frame" x="232" y="13" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="vqR-cO-bSK"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeRating:" destination="7Fo-cQ-MQL" eventType="valueChanged" id="61J-Em-7jd"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1A-N1-ZOy">
+                                <rect key="frame" x="160" y="68" width="77" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-RP-F7g">
+                                <rect key="frame" x="31" y="72" width="90" height="46"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Close"/>
+                                <connections>
+                                    <segue destination="oH2-pj-JPu" kind="unwind" identifier="removeDoor" unwindAction="goBack:" id="ffq-fD-JXs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qUE-3O-t6x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L1A-N1-ZOy" firstAttribute="centerX" secondItem="A34-lw-s8L" secondAttribute="centerX" id="4E6-ud-dBw"/>
+                            <constraint firstItem="jKt-RP-F7g" firstAttribute="leading" secondItem="A34-lw-s8L" secondAttribute="leading" id="BrB-Kw-Rss"/>
+                            <constraint firstItem="jKt-RP-F7g" firstAttribute="top" secondItem="wG5-gm-wqD" secondAttribute="top" id="F2U-ql-YAN"/>
+                            <constraint firstItem="qUE-3O-t6x" firstAttribute="trailing" secondItem="L1A-N1-ZOy" secondAttribute="trailing" constant="156" id="SY4-UT-bvm"/>
+                            <constraint firstItem="jKt-RP-F7g" firstAttribute="top" secondItem="qUE-3O-t6x" secondAttribute="top" constant="13" id="VlJ-NN-pn2"/>
+                            <constraint firstItem="L1A-N1-ZOy" firstAttribute="centerY" secondItem="wG5-gm-wqD" secondAttribute="centerY" id="W0f-6m-iQ4"/>
+                            <constraint firstItem="qUE-3O-t6x" firstAttribute="bottom" secondItem="A34-lw-s8L" secondAttribute="bottom" constant="239" id="WME-OF-Qio"/>
+                            <constraint firstItem="L1A-N1-ZOy" firstAttribute="top" secondItem="qUE-3O-t6x" secondAttribute="top" constant="9" id="XrC-JP-xKJ"/>
+                            <constraint firstItem="qUE-3O-t6x" firstAttribute="trailing" secondItem="A34-lw-s8L" secondAttribute="trailing" constant="28" id="ZhF-Uk-zQ2"/>
+                            <constraint firstItem="L1A-N1-ZOy" firstAttribute="leading" secondItem="jKt-RP-F7g" secondAttribute="trailing" constant="39" id="d3F-Zs-XXg"/>
+                            <constraint firstItem="qUE-3O-t6x" firstAttribute="trailing" secondItem="wG5-gm-wqD" secondAttribute="trailing" constant="45" id="hHw-be-xkd"/>
+                            <constraint firstItem="A34-lw-s8L" firstAttribute="top" secondItem="jKt-RP-F7g" secondAttribute="bottom" constant="60" id="nwr-3d-30C"/>
+                            <constraint firstItem="A34-lw-s8L" firstAttribute="top" secondItem="L1A-N1-ZOy" secondAttribute="bottom" constant="74" id="sU9-6E-mgE"/>
+                            <constraint firstItem="jKt-RP-F7g" firstAttribute="leading" secondItem="qUE-3O-t6x" secondAttribute="leading" constant="31" id="uI0-TO-Pue"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doorRating" destination="wG5-gm-wqD" id="fdU-xC-roq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xR-s1-A2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.5801526717557" y="-606.33802816901414"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="door" width="300" height="400"/>
         <image name="husky" width="300" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,19 +9,26 @@ import UIKit
 
 class MainViewController: UIViewController {
     var ratingHusky: Int = 0
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var ratingDoor: Int = 0
 
     @IBAction func goBack(_ segue: UIStoryboardSegue) {
-        let controller = segue.source as! SecondViewController
-        ratingHusky = controller.rating
+        if segue.identifier == "removeHusky" {
+            let controller = segue.source as! SecondViewController
+            ratingHusky = controller.huskyRatingValue
+        } else if segue.identifier == "removeDoor" {
+            let controller = segue.source as! ThirdViewController
+            ratingDoor = controller.doorRatingValue
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! SecondViewController
-        controller.rating = ratingHusky
+        if segue.identifier == "showHusky" {
+            let controller = segue.destination as! SecondViewController
+            controller.huskyRatingValue = ratingHusky
+        } else if segue.identifier == "showDoor" {
+            let controller = segue.destination as! ThirdViewController
+            controller.doorRatingValue = ratingDoor
+        }
     }
 
 }

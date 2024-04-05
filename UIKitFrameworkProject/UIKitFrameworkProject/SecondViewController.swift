@@ -9,16 +9,16 @@ import UIKit
 
 class SecondViewController: UIViewController {
     @IBOutlet weak var sliderRating: UISlider!
-    var rating: Int = 0
+    var huskyRatingValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sliderRating.value = Float(rating)
+        sliderRating.value = Float(huskyRatingValue)
     }
 
     @IBAction func changeRating(_ sender: UISlider) {
         let value = round(sender.value)
         sliderRating.value = value
-        rating = Int(value)
+        huskyRatingValue = Int(value)
     }
 }

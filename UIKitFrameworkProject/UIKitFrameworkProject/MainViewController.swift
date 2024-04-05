@@ -19,4 +19,9 @@ class MainViewController: UIViewController {
         ratingHusky = controller.rating
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! SecondViewController
+        controller.rating = ratingHusky
+    }
+
 }

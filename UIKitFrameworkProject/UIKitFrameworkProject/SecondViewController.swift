@@ -2,23 +2,28 @@
 //  SecondViewController.swift
 //  UIKitFrameworkProject
 //
-//  Created by Sarah Clark on 4/3/24.
+//  Created by Sarah Clark on 4/4/24.
 //
 
 import UIKit
 
 class SecondViewController: UIViewController {
-    @IBOutlet weak var sliderRating: UISlider!
-    var huskyRatingValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sliderRating.value = Float(huskyRatingValue)
-    }
 
-    @IBAction func changeRating(_ sender: UISlider) {
-        let value = round(sender.value)
-        sliderRating.value = value
-        huskyRatingValue = Int(value)
+        // Do any additional setup after loading the view.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

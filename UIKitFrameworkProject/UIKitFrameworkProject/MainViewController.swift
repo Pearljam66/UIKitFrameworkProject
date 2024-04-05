@@ -1,34 +1,36 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  UIKitFrameworkProject
 //
-//  Created by Sarah Clark on 3/22/24.
+//  Created by Sarah Clark on 4/4/24.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
-    var ratingHusky: Int = 0
-    var ratingDoor: Int = 0
+class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var pickerPictures: UIPickerView!
 
-    @IBAction func goBack(_ segue: UIStoryboardSegue) {
-        if segue.identifier == "removeHusky" {
-            let controller = segue.source as! SecondViewController
-            ratingHusky = controller.huskyRatingValue
-        } else if segue.identifier == "removeDoor" {
-            let controller = segue.source as! ThirdViewController
-            ratingDoor = controller.doorRatingValue
-        }
+    var picturesList: [String]!
+    var ratings: [Int]!
+    var selectedPicture: Int!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        pickerPictures.delegate = self
+        pickerPictures.dataSource = self
+
+        picturesList = ["husky", "door"]
+        ratings = [0, 0]
+        selectedPicture = 0
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showHusky" {
-            let controller = segue.destination as! SecondViewController
-            controller.huskyRatingValue = ratingHusky
-        } else if segue.identifier == "showDoor" {
-            let controller = segue.destination as! ThirdViewController
-            controller.doorRatingValue = ratingDoor
-        }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return picturesList.count
     }
 
 }

@@ -2,33 +2,28 @@
 //  SecondViewController.swift
 //  UIKitFrameworkProject
 //
-//  Created by Sarah Clark on 4/4/24.
+//  Created by Sarah Clark on 4/8/24.
 //
 
 import UIKit
 
 class SecondViewController: UIViewController {
-    @IBOutlet weak var sliderRating: UISlider!
-    @IBOutlet weak var pictureView: UIImageView!
-
-    var rating: Int = 0
-    var picture: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sliderRating.value = Float(rating)
-        pictureView.image = UIImage(named: picture.lowercased())
+        // Do any additional setup after loading the view.
     }
+    
 
-    @IBAction func changeRating(_ sender: UISlider) {
-        let value = round(sender.value)
-        sliderRating.value = value
-        rating = Int(value)
-    }
+    /*
+    // MARK: - Navigation
 
-    @IBAction func goBack(_ sender: UIButton) {
-        performSegue(withIdentifier: "goBack", sender: self)
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }

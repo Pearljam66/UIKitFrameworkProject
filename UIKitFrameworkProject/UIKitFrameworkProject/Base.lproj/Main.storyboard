@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Menu-->
         <scene sceneID="9iu-Cw-l8S">
             <objects>
                 <viewController id="XtL-tj-GRE" customClass="RootViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="c3c-eR-e0Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zq1-Rk-NnW"/>
+                    <navigationItem key="navigationItem" title="Menu" id="Zq1-Rk-NnW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDV-Td-l5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +61,9 @@
                         <viewLayoutGuide key="safeArea" id="OGl-nd-HWx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4MN-8c-8Fb"/>
+                    <navigationItem key="navigationItem" id="4MN-8c-8Fb">
+                        <barButtonItem key="backBarButtonItem" title="Go Back" id="5ZB-ZP-vft"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8h-5l-QnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

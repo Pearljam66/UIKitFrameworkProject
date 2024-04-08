@@ -13,14 +13,17 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         var container = AttributeContainer()
         container.font = UIFont.preferredFont(forTextStyle: .title1)
-        container.foregroundColor = UIColor.white
+
+        let buttonAppearance = UIBarButtonItemAppearance()
+
+        if let textAttributes = try? Dictionary(container, including: \.uiKit) {
+            buttonAppearance.normal.titleTextAttributes = textAttributes
+        }
 
         let standard = UINavigationBarAppearance()
-        standard.backgroundColor = UIColor.systemRed
-
-        if let keys = try? Dictionary(container, including: \.uiKit) {
-            standard.titleTextAttributes = keys
-        }
+        standard.backgroundColor = UIColor.systemGray4
+        standard.backButtonAppearance = buttonAppearance
+        standard.setBackIndicatorImage(UIImage(systemName: "arrow.backward.circle"), transitionMaskImage: UIImage(systemName: "arrow.backward.circle"))
 
         let compact = UINavigationBarAppearance()
         compact.backgroundColor = UIColor.yellow
@@ -28,8 +31,6 @@ class RootViewController: UIViewController {
         let bar = navigationController?.navigationBar
         bar?.scrollEdgeAppearance = standard
         bar?.compactScrollEdgeAppearance = compact
-
-        navigationController?.hidesBarsOnTap = true
     }
 
 }

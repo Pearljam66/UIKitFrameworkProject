@@ -9,13 +9,14 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBAction func closeView(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = UIBarButtonItem(image: UIImage(systemName: "trash"), primaryAction: UIAction(handler: { action in
-            print("Button pressed")
-        }))
-        button.tintColor = UIColor.systemRed
-        navigationItem.rightBarButtonItems = [button]
+
+        // Do any additional setup after loading the view.
     }
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sAx-Hc-x9a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mQb-AM-vbz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -8,77 +8,90 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu-->
-        <scene sceneID="9iu-Cw-l8S">
+        <!--Root View-->
+        <scene sceneID="Q7a-3s-oRc">
             <objects>
-                <viewController id="XtL-tj-GRE" customClass="RootViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a4D-P6-lMc">
+                <viewController title="Root View" id="D2t-W0-NBg" customClass="RootViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6mB-Vi-isx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-DL-iOR">
-                                <rect key="frame" x="112" y="182" width="169" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOD-P2-OBz">
+                                <rect key="frame" x="99" y="172" width="169" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Open Second View"/>
                                 <connections>
-                                    <segue destination="tIE-dZ-cFb" kind="show" id="smR-aD-fej"/>
+                                    <segue destination="dTt-eV-LBx" kind="show" id="p0d-hf-VfB"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="c3c-eR-e0Z"/>
+                        <viewLayoutGuide key="safeArea" id="IKD-hh-82N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="Zq1-Rk-NnW"/>
+                    <navigationItem key="navigationItem" id="GzV-LP-UJI"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bDV-Td-l5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o71-4W-OM5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623.6641221374045" y="-260.56338028169017"/>
+            <point key="canvasLocation" x="918.32061068702285" y="-270.42253521126764"/>
         </scene>
         <!--Second View-->
-        <scene sceneID="jcg-cZ-0Ij">
+        <scene sceneID="B8j-t1-bIj">
             <objects>
-                <viewController id="tIE-dZ-cFb" customClass="SecondViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MPW-WN-OUq">
+                <viewController title="Second View" id="dTt-eV-LBx" customClass="SecondViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QN6-uC-00x">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="OGl-nd-HWx"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-ph-qcp">
+                                <rect key="frame" x="98" y="157" width="171" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Close Second View">
+                                    <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeView:" destination="dTt-eV-LBx" eventType="touchUpInside" id="1az-33-OEN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qx2-NO-5XP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Second View" id="4MN-8c-8Fb">
-                        <barButtonItem key="backBarButtonItem" title="Go Back" id="5ZB-ZP-vft"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="HGR-B7-6IL"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x8h-5l-QnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAr-I0-e3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2511" y="-247"/>
+            <point key="canvasLocation" x="1918.3206106870227" y="-257.04225352112678"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="YG1-aG-nZb">
+        <scene sceneID="NfW-ea-Y9C">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="sAx-Hc-x9a" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mQb-AM-vbz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nkH-Ve-6UH">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y6x-Jg-eKl">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bFx-Ba-eh5">
-                        <rect key="frame" x="0.0" y="769" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
-                        <segue destination="XtL-tj-GRE" kind="relationship" relationship="rootViewController" id="F24-tW-hN4"/>
+                        <segue destination="D2t-W0-NBg" kind="relationship" relationship="rootViewController" id="flz-Oy-2Gr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yRO-fy-2Jn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xYs-ke-Dow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696.94656488549617" y="-260.56338028169017"/>
+            <point key="canvasLocation" x="-8.3969465648854964" y="-270.42253521126764"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

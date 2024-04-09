@@ -11,8 +11,11 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Second"
-        navigationItem.largeTitleDisplayMode = .never
+        let button = UIBarButtonItem(image: UIImage(systemName: "trash"), primaryAction: UIAction(handler: { action in
+            print("Button pressed")
+        }))
+        button.tintColor = UIColor.systemRed
+        navigationItem.rightBarButtonItems = [button]
     }
 
 }

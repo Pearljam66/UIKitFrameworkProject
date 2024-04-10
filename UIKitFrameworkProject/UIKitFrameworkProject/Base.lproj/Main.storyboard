@@ -11,7 +11,7 @@
         <!--Settings-->
         <scene sceneID="xIi-ch-F4g">
             <objects>
-                <viewController title="Settings" id="KJG-lc-a5Y" sceneMemberID="viewController">
+                <viewController title="Settings" id="KJG-lc-a5Y" customClass="SettingsViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVA-l8-9MG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
         <!--Weather-->
         <scene sceneID="84P-eK-zXG">
             <objects>
-                <viewController id="RzJ-vd-swS" customClass="ViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RzJ-vd-swS" customClass="WeatherViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EgY-ig-rhO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

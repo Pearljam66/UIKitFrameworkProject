@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     var counter = 1
 
     @IBAction func updateBadge(_ sender: UIButton) {

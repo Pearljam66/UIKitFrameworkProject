@@ -14,13 +14,13 @@ class MyTabViewController: UITabBarController, UITabBarControllerDelegate {
         delegate = self
     }
 
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let list = viewControllers!
-        let controller = list[1]
-
-        if viewController === controller {
-            print("You selected settings.")
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let controller = viewController as? SettingsViewController {
+            let control = controller.myProperty
+            if control != 0 {
+                return false
+            }
         }
+        return true
     }
-
 }

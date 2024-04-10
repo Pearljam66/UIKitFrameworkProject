@@ -25,10 +25,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Show Husky"/>
                                 <connections>
                                     <action selector="goToPicture:" destination="p7k-7u-2Vz" eventType="touchUpInside" id="tVd-j0-rT8"/>
-                                    <segue destination="YEc-HL-Rq4" kind="show" identifier="showPicture" id="VmA-eM-iou"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-PX-wwX">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-PX-wwX">
                                 <rect key="frame" x="130" y="245" width="133" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Show Door">
@@ -52,6 +51,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="DFn-oc-Fji"/>
+                    <connections>
+                        <segue destination="YEc-HL-Rq4" kind="show" identifier="showPicture" id="4BX-L0-lPb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsg-gL-uNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,9 +77,9 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnM-zQ-iEd">
-                                <rect key="frame" x="172" y="178" width="49" height="21"/>
+                                <rect key="frame" x="172" y="174" width="49" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="zZv-kn-MqC"/>
+                                    <constraint firstAttribute="height" constant="21" id="X42-iw-bAn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -87,16 +89,16 @@
                         <viewLayoutGuide key="safeArea" id="oAs-kj-ipT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="centerX" secondItem="lWN-MQ-48q" secondAttribute="centerX" id="3ka-uc-cOm"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="P3U-K0-Mwb" secondAttribute="bottom" constant="-16" id="Eqt-cK-g5O"/>
-                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="top" secondItem="oAs-kj-ipT" secondAttribute="top" constant="67" id="Mqo-Hy-ncr"/>
-                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="leading" secondItem="JnM-zQ-iEd" secondAttribute="trailing" constant="31" id="VRn-sV-GXE"/>
-                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="trailing" secondItem="P3U-K0-Mwb" secondAttribute="trailing" id="Ves-HH-48m"/>
-                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="top" secondItem="oAs-kj-ipT" secondAttribute="top" constant="75" id="bc8-rF-Mwt"/>
-                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="bottom" secondItem="lJ6-Bi-iSr" secondAttribute="bottom" id="e71-sD-W3n"/>
-                            <constraint firstItem="P3U-K0-Mwb" firstAttribute="leading" secondItem="oAs-kj-ipT" secondAttribute="leading" constant="28" id="eG8-Qm-F5T"/>
-                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="centerX" secondItem="P3U-K0-Mwb" secondAttribute="centerX" id="omM-4h-YAm"/>
-                            <constraint firstItem="P3U-K0-Mwb" firstAttribute="top" secondItem="JnM-zQ-iEd" secondAttribute="bottom" constant="23" id="tgW-Mi-ABR"/>
+                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="top" secondItem="oAs-kj-ipT" secondAttribute="top" constant="67" id="3pM-CD-DKh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="P3U-K0-Mwb" secondAttribute="bottom" constant="-16" id="FrY-Ak-ZO3"/>
+                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="centerY" secondItem="lJ6-Bi-iSr" secondAttribute="centerY" id="LS4-3x-FBc"/>
+                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="centerX" secondItem="P3U-K0-Mwb" secondAttribute="centerX" id="Ngb-Kj-0Fs"/>
+                            <constraint firstItem="P3U-K0-Mwb" firstAttribute="leading" secondItem="oAs-kj-ipT" secondAttribute="leading" constant="28" id="bWb-1F-fKq"/>
+                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="top" secondItem="oAs-kj-ipT" secondAttribute="top" constant="71" id="cyV-u4-Y3A"/>
+                            <constraint firstItem="P3U-K0-Mwb" firstAttribute="top" secondItem="lJ6-Bi-iSr" secondAttribute="bottom" constant="23" id="hkd-KY-kZ4"/>
+                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="leading" secondItem="JnM-zQ-iEd" secondAttribute="trailing" constant="31" id="ifi-vk-YV5"/>
+                            <constraint firstItem="JnM-zQ-iEd" firstAttribute="centerX" secondItem="lWN-MQ-48q" secondAttribute="centerX" id="roa-vW-3iU"/>
+                            <constraint firstItem="lJ6-Bi-iSr" firstAttribute="trailing" secondItem="P3U-K0-Mwb" secondAttribute="trailing" id="vvI-f3-GYj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Picture" id="CUu-zV-6v0"/>

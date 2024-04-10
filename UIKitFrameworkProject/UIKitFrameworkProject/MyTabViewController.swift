@@ -7,16 +7,20 @@
 
 import UIKit
 
-class MyTabViewController: UITabBarController {
+class MyTabViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
+    }
 
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let list = viewControllers!
-        let controller = list[0] as! ViewController
-        controller.tabBarItem?.badgeValue = String(20)
+        let controller = list[1]
 
-        self.selectedIndex = 1
+        if viewController === controller {
+            print("You selected settings.")
+        }
     }
 
 }

@@ -16,12 +16,10 @@ class PictureViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let app = UIApplication.shared
-        myDelegate = app.delegate as? AppDelegate
 
-        let selected = myDelegate.selectedPicture ?? 0
-        let picture = myDelegate.picturesList[selected]
-        let rating = myDelegate.ratings[selected]
+        let selected = AppData.selectedPicture
+        let picture = AppData.picturesList[selected]
+        let rating = AppData.ratings[selected]
         sliderRating.value = Float(rating)
         pictureView.image = UIImage(named: picture.lowercased())
     }
@@ -29,8 +27,8 @@ class PictureViewController: UIViewController {
     @IBAction func changeRating(_ sender: UISlider) {
         let value = round(sender.value)
         sliderRating.value = value
-        let selected = myDelegate.selectedPicture ?? 0
-        myDelegate.ratings[selected] = Int(value)
+        let selected = AppData.selectedPicture
+        AppData.ratings[selected] = Int(value)
     }
 
 }

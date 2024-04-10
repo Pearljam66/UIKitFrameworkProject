@@ -9,14 +9,8 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var picturesList: [String]!
-    var ratings: [Int]!
-    var selectedPicture: Int!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        picturesList = ["Husky", "Door"]
-        ratings = [0,0]
-        selectedPicture = 0
         return true
     }
 

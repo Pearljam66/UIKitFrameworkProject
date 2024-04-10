@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="383.96946564885496" y="-689.43661971830988"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Tab View Controller-->
         <scene sceneID="x8Y-d9-858">
             <objects>
-                <tabBarController id="AF9-Jf-YZt" sceneMemberID="viewController">
+                <tabBarController id="AF9-Jf-YZt" customClass="MyTabViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P4l-lE-sYw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

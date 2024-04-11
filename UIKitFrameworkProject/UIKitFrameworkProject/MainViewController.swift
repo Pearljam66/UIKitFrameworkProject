@@ -26,7 +26,10 @@ class MainViewController: UIViewController {
             if let item = AppData.items.first(where: { $0.id == itemID}) {
                 var config = cell.defaultContentConfiguration()
                 config.text = item.name
+                config.textProperties.color = .purple
                 config.secondaryText = "\(item.calories) Calories"
+                config.secondaryTextProperties.color = .systemGray
+
                 config.image = UIImage(named: item.image)
                 config.imageProperties.maximumSize = CGSize(width: 40, height: 40)
                 cell.contentConfiguration = config

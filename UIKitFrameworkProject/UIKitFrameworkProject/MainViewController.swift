@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "daCell", for: indexPath)
 
             if let item = AppData.items.first(where: { $0.id == itemID}) {
-                var config = cell.defaultContentConfiguration()
+                var config = UIListContentConfiguration.valueCell()
                 config.text = item.name
                 config.textProperties.color = .purple
                 config.secondaryText = "\(item.calories) Calories"

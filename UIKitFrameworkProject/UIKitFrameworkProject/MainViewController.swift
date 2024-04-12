@@ -15,6 +15,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         daTable.register(UITableViewCell.self, forCellReuseIdentifier: "daCell")
+        daTable.rowHeight = 80
+        daTable.separatorStyle = .none
+
         prepareDataSource()
         prepareSnapshot()
     }
@@ -33,6 +36,12 @@ class MainViewController: UIViewController {
                 config.image = UIImage(named: item.image)
                 config.imageProperties.maximumSize = CGSize(width: 40, height: 40)
                 cell.contentConfiguration = config
+
+                var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+                backgroundConfig.backgroundColor = .systemGray6
+                backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                backgroundConfig.cornerRadius = 10
+                cell.backgroundConfiguration = backgroundConfig
             }
             return cell
         }

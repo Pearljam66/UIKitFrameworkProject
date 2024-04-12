@@ -37,11 +37,18 @@ class MainViewController: UIViewController {
                 config.imageProperties.maximumSize = CGSize(width: 40, height: 40)
                 cell.contentConfiguration = config
 
-                var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
-                backgroundConfig.backgroundColor = .systemGray6
-                backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-                backgroundConfig.cornerRadius = 10
-                cell.backgroundConfiguration = backgroundConfig
+                cell.configurationUpdateHandler = { cell, state in
+                    var backgroundConfig = UIBackgroundConfiguration.listPlainCell().updated(for: state)
+                    backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                    backgroundConfig.cornerRadius = 10
+
+                    if state.isSelected {
+                        backgroundConfig.backgroundColor = .systemBlue
+                    } else {
+                        backgroundConfig.backgroundColor = .systemGray6
+                    }
+                    cell.backgroundConfiguration = backgroundConfig
+                }
             }
             return cell
         }

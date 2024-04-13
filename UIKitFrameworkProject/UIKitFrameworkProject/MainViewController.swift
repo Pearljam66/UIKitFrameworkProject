@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var daTable: UITableView!
+    var selected: ItemsData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +21,31 @@ class MainViewController: UIViewController, UITableViewDelegate {
         prepareSnapshot()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let path = daTable.indexPathForSelectedRow {
+            daTable.deselectRow(at: path, animated: true)
+        }
+    }
+
     func prepareDataSource() {
         AppData.dataSource = UITableViewDiffableDataSource<Sections, ItemsData.ID>(tableView: daTable) { tableView, indexPath, itemID in
             let cell = tableView.dequeueReusableCell(withIdentifier: "daCell", for: indexPath)
-            if let item = AppData.items.first(where: { $0.id == itemID }) {
-                cell.configurationUpdateHandler = { cell, state in
-                    var config = cell.defaultContentConfiguration().updated(for: state)
-                    config.text = item.name
-                    config.secondaryText = "\(item.calories) Calories"
-                    config.image = UIImage(named: item.image)
-                    config.imageProperties.maximumSize = CGSize(width: 40, height: 40)
-                    cell.contentConfiguration = config
 
-                    cell.accessoryType = item.selected ? .checkmark : .none
-                }
+            if let item = AppData.items.first(where: { $0.id == itemID }) {
+                var config = cell.defaultContentConfiguration()
+                config.text = item.name
+                cell.contentConfiguration = config
             }
             return cell
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let controller = segue.destination as! DetailViewController
+            controller.selected = selected
         }
     }
 
@@ -49,9 +59,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let itemID = AppData.dataSource.itemIdentifier(for: indexPath) {
             if let item = AppData.items.first(where: { $0.id == itemID }) {
-                item.selected.toggle()
+                selected = item
             }
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showDetails", sender: self)
     }
+
 }

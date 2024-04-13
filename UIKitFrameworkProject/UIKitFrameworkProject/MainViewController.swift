@@ -13,7 +13,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        daTable.delegate = self
         daTable.register(UITableViewCell.self, forCellReuseIdentifier: "daCell")
 
         prepareDataSource()
@@ -22,10 +22,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     func prepareDataSource() {
         AppData.dataSource = UITableViewDiffableDataSource<Sections, ItemsData.ID>(tableView: daTable) { tableView, indexPath, itemID in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "daCell", for: indexPath) as! FoodCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "daCell", for: indexPath)
+            if let item = AppData.items.first(where: { $0.id == itemID }) {
+                cell.configurationUpdateHandler = { cell, state in
+                    var config = cell.defaultContentConfiguration().updated(for: state)
+                    config.text = item.name
+                    config.secondaryText = "\(item.calories) Calories"
+                    config.image = UIImage(named: item.image)
+                    config.imageProperties.maximumSize = CGSize(width: 40, height: 40)
+                    cell.contentConfiguration = config
 
-            if let item = AppData.items.first(where: { $0.id == itemID}) {
-                cell.item = item
+                    cell.accessoryType = item.selected ? .checkmark : .none
+                }
             }
             return cell
         }
@@ -36,5 +44,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
         snapshot.appendSections([.main])
         snapshot.appendItems(AppData.items.map({ $0.id }))
         AppData.dataSource.apply(snapshot)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let itemID = AppData.dataSource.itemIdentifier(for: indexPath) {
+            if let item = AppData.items.first(where: { $0.id == itemID }) {
+                item.selected.toggle()
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

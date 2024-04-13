@@ -16,6 +16,7 @@ class CustomContentView: UIView, UIContentView {
             newConfiguration()
         }
     }
+
     init(configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
@@ -44,13 +45,16 @@ class CustomContentView: UIView, UIContentView {
 
         newConfiguration()
     }
+
     func newConfiguration() {
         if let config = self.configuration as? CustomConfig {
             name.text = config.name
             picture.image = config.picture
         }
     }
+
     required init?(coder: NSCoder) {
         fatalError("Error")
     }
+
 }

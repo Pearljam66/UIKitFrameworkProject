@@ -24,4 +24,17 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func deleteItem(_ sender: UIButton) {
+        if selected != nil {
+            AppData.items.removeAll(where: { $0.id == selected.id })
+
+            var currentSnapshot = AppData.dataSource.snapshot()
+            currentSnapshot.deleteItems([selected.id])
+            AppData.dataSource.apply(currentSnapshot)
+
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+
 }

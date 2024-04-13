@@ -25,7 +25,13 @@
                         <viewLayoutGuide key="safeArea" id="w7U-F6-xF5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Groceries" id="S60-gO-epZ"/>
+                    <navigationItem key="navigationItem" title="Groceries" id="S60-gO-epZ">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Gpl-ri-asW">
+                            <connections>
+                                <segue destination="Zc8-DP-YsR" kind="show" id="JbU-l4-DKY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="daTable" destination="9Wy-Wn-oEI" id="5Ne-YX-JBV"/>
                         <segue destination="nu2-mk-7Cv" kind="show" identifier="showDetails" id="iar-0Z-kVG"/>
@@ -77,6 +83,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ziu-jc-KKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2216.030534351145" y="-270.42253521126764"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="mjM-TI-HZt">
+            <objects>
+                <viewController id="Zc8-DP-YsR" customClass="AddItemViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y4R-pl-Ikf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy5-FZ-QvL">
+                                <rect key="frame" x="16" y="138" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v3k-xi-hxb">
+                                <rect key="frame" x="115" y="131" width="262" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.54374946710000005" green="0.950875947" blue="0.90731732669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMM-21-Rhy">
+                                <rect key="frame" x="309" y="173" width="61" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveItem:" destination="Zc8-DP-YsR" eventType="touchUpInside" id="UW4-ZM-Dgn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JVW-xq-nZ3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fZv-D7-PSj"/>
+                    <connections>
+                        <outlet property="newItem" destination="v3k-xi-hxb" id="uyl-MM-Yme"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="009-IA-VjC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3093.8931297709923" y="-285.21126760563379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vam-IT-RXJ">

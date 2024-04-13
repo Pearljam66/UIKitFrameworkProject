@@ -73,4 +73,22 @@ class MainViewController: UIViewController, UITableViewDelegate {
         performSegue(withIdentifier: "showDetails", sender: self)
     }
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let button = UIContextualAction(style: .normal, title: "Remove", handler: { (action, view, completion) in
+            if let itemID = AppData.dataSource.itemIdentifier(for: indexPath) {
+                AppData.items.removeAll(where: { $0.id == itemID })
+
+                var currentSnapshot = AppData.dataSource.snapshot()
+                currentSnapshot.deleteItems([itemID])
+                AppData.dataSource.apply(currentSnapshot)
+            }
+            completion(true)
+        })
+        button.backgroundColor = UIColor.systemBlue
+
+        let config = UISwipeActionsConfiguration(actions: [button])
+        config.performsFirstActionWithFullSwipe = false
+        return config
+    }
+
 }

@@ -7,14 +7,14 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var daTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        daTable.register(FoodCell.self, forCellReuseIdentifier: "daCell")
+        daTable.register(UITableViewCell.self, forCellReuseIdentifier: "daCell")
 
         prepareDataSource()
         prepareSnapshot()

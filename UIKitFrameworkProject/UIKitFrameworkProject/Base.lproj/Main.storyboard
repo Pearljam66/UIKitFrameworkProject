@@ -31,6 +31,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Groceries" id="S60-gO-epZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="nwr-hW-Wmp">
+                            <connections>
+                                <action selector="editList:" destination="vJH-cm-zse" id="sT2-ML-mXL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Gpl-ri-asW">
                             <connections>
                                 <segue destination="Zc8-DP-YsR" kind="show" id="JbU-l4-DKY"/>

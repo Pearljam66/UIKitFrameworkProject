@@ -29,8 +29,16 @@ class MainViewController: UIViewController, UITableViewDelegate {
         }
     }
 
+    @IBAction func editList(_ sender: UIBarButtonItem) {
+        if daTable.isEditing {
+            daTable.setEditing(false, animated: true)
+        } else {
+            daTable.setEditing(true, animated: true)
+        }
+    }
+
     func prepareDataSource() {
-        AppData.dataSource = UITableViewDiffableDataSource<Sections, ItemsData.ID>(tableView: daTable) { tableView, indexPath, itemID in
+        AppData.dataSource = MyDataSource(tableView: daTable) { tableView, indexPath, itemID in
             let cell = tableView.dequeueReusableCell(withIdentifier: "daCell", for: indexPath)
 
             if let item = AppData.items.first(where: { $0.id == itemID }) {

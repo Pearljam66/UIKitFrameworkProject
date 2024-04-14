@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class MyTableViewController: UITableViewController {
     var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
@@ -16,19 +16,6 @@ class MyTableViewController: UITableViewController, UISearchResultsUpdating, UIS
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
         prepareDataSource()
         prepareSnapshot()
-
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-
-        let searchBar = searchController.searchBar
-        searchBar.delegate = self
-        searchBar.placeholder = "Search Product"
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["Names", "Calories"]
-        searchBar.selectedScopeButtonIndex = 0
     }
 
     func prepareDataSource() {
@@ -48,20 +35,6 @@ class MyTableViewController: UITableViewController, UISearchResultsUpdating, UIS
         snapshot.appendSections([.main])
         snapshot.appendItems(AppData.filteredItems.map({ $0.id }))
         AppData.dataSource.apply(snapshot)
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        if let text = searchController.searchBar.text {
-            AppData.searchValue = text.trimmingCharacters(in: .whitespaces)
-            prepareSnapshot()
-        }
-    }
-
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        AppData.selectedButton = selectedScope
-        prepareSnapshot()
-        searchBar.placeholder = selectedScope == 0 ? "Search Product" : "Maximum Calories"
-        searchBar.text = ""
     }
 
 }

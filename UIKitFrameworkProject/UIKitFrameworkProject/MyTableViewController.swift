@@ -8,7 +8,6 @@
 import UIKit
 
 class MyTableViewController: UITableViewController {
-    var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()

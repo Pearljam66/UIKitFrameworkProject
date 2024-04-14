@@ -13,6 +13,7 @@ class MyTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "myHeader")
         prepareDataSource()
         prepareSnapshot()
     }
@@ -39,6 +40,20 @@ class MyTableViewController: UITableViewController {
             snapshot.appendItems(itemIDs, toSection: section.id)
         }
         AppData.dataSource.apply(snapshot)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "myHeader")!
+
+        var config = UIListContentConfiguration.prominentInsetGroupedHeader()
+        config.text = AppData.sections[section].name
+        config.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
+        header.contentConfiguration = config
+        return header
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 
 }

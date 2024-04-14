@@ -112,7 +112,13 @@
                             <constraint firstItem="nM3-31-kPa" firstAttribute="leading" secondItem="eOU-gS-yMl" secondAttribute="leadingMargin" id="zUs-Tt-yO4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wXH-Yn-M6S"/>
+                    <navigationItem key="navigationItem" id="wXH-Yn-M6S">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Item" style="plain" id="GOF-dr-XcN">
+                            <connections>
+                                <segue destination="cIW-ed-pqX" kind="show" identifier="showEditItem" id="W9F-Zn-Qmz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageItem" destination="29J-8x-DfC" id="X9M-JN-JcP"/>
                         <outlet property="nutritionItem" destination="uHS-r3-GmT" id="5zM-RQ-8Xz"/>
@@ -178,6 +184,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="009-IA-VjC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3093.8931297709923" y="-285.21126760563379"/>
+        </scene>
+        <!--Edit Item View Controller-->
+        <scene sceneID="xn0-6K-Mbn">
+            <objects>
+                <viewController id="cIW-ed-pqX" customClass="EditItemViewController" customModule="UIKitFrameworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="11c-FH-qbe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-f0-j10">
+                                <rect key="frame" x="16" y="132" width="87" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Jb-GW-QZh">
+                                <rect key="frame" x="126" y="126" width="251" height="34"/>
+                                <color key="backgroundColor" red="0.44625991510000002" green="0.78039215689999997" blue="0.74464321850000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAe-t7-dve">
+                                <rect key="frame" x="309" y="168" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveItem:" destination="3Bj-rd-lVN" eventType="touchUpInside" id="F63-df-mwD"/>
+                                    <action selector="saveItem:" destination="cIW-ed-pqX" eventType="touchUpInside" id="XEA-Iq-0t1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vU0-l0-xBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m6u-f0-j10" firstAttribute="bottom" secondItem="7Jb-GW-QZh" secondAttribute="bottom" id="C8l-BG-8Mv"/>
+                            <constraint firstItem="m6u-f0-j10" firstAttribute="leading" secondItem="11c-FH-qbe" secondAttribute="leadingMargin" id="REj-cC-ruD"/>
+                            <constraint firstItem="7Jb-GW-QZh" firstAttribute="top" secondItem="vU0-l0-xBY" secondAttribute="top" constant="23" id="U06-yN-lvp"/>
+                            <constraint firstItem="7Jb-GW-QZh" firstAttribute="trailing" secondItem="11c-FH-qbe" secondAttribute="trailingMargin" id="XLj-Y9-dMM"/>
+                            <constraint firstItem="HAe-t7-dve" firstAttribute="top" secondItem="7Jb-GW-QZh" secondAttribute="bottom" constant="8" id="iUX-h3-zqt"/>
+                            <constraint firstItem="7Jb-GW-QZh" firstAttribute="leading" secondItem="m6u-f0-j10" secondAttribute="trailing" constant="23" id="l57-3u-yZz"/>
+                            <constraint firstItem="HAe-t7-dve" firstAttribute="leading" secondItem="vU0-l0-xBY" secondAttribute="leading" constant="309" id="r3V-b2-mIq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="F76-Sv-qTg"/>
+                    <connections>
+                        <outlet property="newName" destination="7Jb-GW-QZh" id="bbT-BZ-ZWI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpf-8l-6Z0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3Bj-rd-lVN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4020.6106870229005" y="-278.16901408450707"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vam-IT-RXJ">

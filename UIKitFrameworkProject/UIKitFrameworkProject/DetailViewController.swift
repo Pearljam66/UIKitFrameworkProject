@@ -35,6 +35,12 @@ class DetailViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEditItem" {
+            let controller = segue.destination as! EditItemViewController
+            controller.selected = selected
+        }
+    }
 
 }

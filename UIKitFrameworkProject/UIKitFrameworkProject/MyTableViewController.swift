@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyTableViewController: UITableViewController {
+class MyTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
@@ -17,19 +17,18 @@ class MyTableViewController: UITableViewController {
         prepareDataSource()
         prepareSnapshot()
 
-        refresh = UIRefreshControl()
-        refresh.addAction(UIAction(handler: { [unowned self] action in
-            self.refreshTable()
-        }), for: .valueChanged)
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
 
-        let text = AttributedString("Refreshing Table")
-        refresh.attributedTitle = NSMutableAttributedString(text)
-        tableView.refreshControl = refresh
-    }
-
-    func refreshTable() {
-        prepareSnapshot()
-        refresh.endRefreshing()
+        let searchBar = searchController.searchBar
+        searchBar.delegate = self
+        searchBar.placeholder = "Search Product"
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["Names", "Calories"]
+        searchBar.selectedScopeButtonIndex = 0
     }
 
     func prepareDataSource() {
@@ -47,8 +46,22 @@ class MyTableViewController: UITableViewController {
     func prepareSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Sections, ItemsData.ID>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(AppData.items.map({ $0.id }))
+        snapshot.appendItems(AppData.filteredItems.map({ $0.id }))
         AppData.dataSource.apply(snapshot)
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text {
+            AppData.searchValue = text.trimmingCharacters(in: .whitespaces)
+            prepareSnapshot()
+        }
+    }
+
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        AppData.selectedButton = selectedScope
+        prepareSnapshot()
+        searchBar.placeholder = selectedScope == 0 ? "Search Product" : "Maximum Calories"
+        searchBar.text = ""
     }
 
 }

@@ -9,13 +9,32 @@ import UIKit
 
 struct ApplicationData {
     var dataSource: UITableViewDiffableDataSource<Sections, ItemsData.ID>!
+    var items: [ItemsData] = []
 
-    var items: [ItemsData] = [] {
-        didSet {
-            items.sort(by: { $0.name < $1.name })
+    var searchValue: String = ""
+    var selectedButton: Int = 0
+    var filteredItems: [ItemsData] {
+        get {
+            if searchValue.isEmpty {
+                return items
+            } else {
+                var list = items.filter( { (item) -> Bool in
+                    if selectedButton == 0 {
+                        let value1 = item.name.lowercased()
+                        let value2 = searchValue.lowercased()
+                        return value1.hasPrefix(value2)
+                    } else if selectedButton == 1 {
+                        if let maximum = Int(searchValue),item.calories < maximum {
+                            return true
+                        }
+                    }
+                    return false
+                })
+                list.sort(by: { (value1, value2) in value1.name < value2.name })
+                return list
+            }
         }
     }
-
     init() {
         items.append(ItemsData("Bagels", "bagels", 250, false))
         items.append(ItemsData("Brownies", "brownies", 466, false))

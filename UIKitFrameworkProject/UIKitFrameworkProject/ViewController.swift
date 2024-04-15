@@ -16,13 +16,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         defaultValues = UserDefaults.standard
 
-        if let number = defaultValues.object(forKey: "counter") as? Double {
+        if let number = defaultValues.object(forKey: "counter") as? Double{
             counter.value = number
             counterLabel.text = String(number)
         }
+
+        if let lastDate = defaultValues.object(forKey:"lastDate") as? Date{
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: lastDate, to: Date())
+            print("You haven't use this app in \(components.year!) years, \(components.month!) months, \(components.day!) days, \(components.hour!) hours, \(components.minute!) minutes, \(components.second!) seconds")
+        }
+        defaultValues.set(Date(), forKey: "lastDate")
     }
 
     @IBAction func incrementValue(_ sender: UIStepper) {

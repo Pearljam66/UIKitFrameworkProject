@@ -7,10 +7,11 @@
 
 import UIKit
 
-class MyCollectionViewController: UICollectionViewController {
+class MyCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
 
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: 100, height: 100)
@@ -49,6 +50,17 @@ class MyCollectionViewController: UICollectionViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(AppData.items.map({ $0.id }))
         AppData.dataSource.apply(snapshot)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var width: CGFloat = 146
+        var height: CGFloat = 100
+
+        if indexPath.item % 3 == 0 {
+            width = 292
+            height = 200
+        }
+        return CGSize(width: width, height: height)
     }
 
 }

@@ -25,25 +25,27 @@ class MyCollectionViewController: UICollectionViewController {
                 cell.picture.image = UIImage(named: item.image)
             }
         }
-
-        AppData.dataSource = UICollectionViewDiffableDataSource<Sections, ItemsData.ID>(collectionView: collectionView) { (collection, indexPath, itemID) in
+        AppData.dataSource = UICollectionViewDiffableDataSource<Sections.ID, ItemsData.ID>(collectionView: collectionView) { (collection, indexPath, itemID) in
             return collection.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemID)
         }
-
         let headerRegistration = UICollectionView.SupplementaryRegistration<MyHeader>(elementKind: UICollectionView.elementKindSectionHeader) { headerView, kind, indexPath in
             headerView.pictureView.image = UIImage(named: "gradientTop")
-            headerView.textView.text = "My Food"
+            headerView.textView.text = AppData.sections[indexPath.section].name
         }
-
         AppData.dataSource.supplementaryViewProvider = { view, kind, indexPath in
             return self.collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
     }
 
     func prepareSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Sections, ItemsData.ID>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(AppData.items.map({ $0.id }))
+        var snapshot = NSDiffableDataSourceSnapshot<Sections.ID, ItemsData.ID>()
+        snapshot.appendSections(AppData.sections.map({ $0.id }))
+        for section in AppData.sections {
+            let itemIDs = AppData.items.compactMap({ value in
+                return value.section == section.name ? value.id : nil
+            })
+            snapshot.appendItems(itemIDs, toSection: section.id)
+        }
         AppData.dataSource.apply(snapshot)
     }
 

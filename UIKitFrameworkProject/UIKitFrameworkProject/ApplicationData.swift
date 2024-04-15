@@ -7,13 +7,8 @@
 
 import UIKit
 
-class Sections: Identifiable {
-    var id: UUID = UUID()
-    var name: String
-
-    init(name: String) {
-        self.name = name
-    }
+enum Sections {
+    case selected, available
 }
 
 class ItemsData: Identifiable {
@@ -22,37 +17,27 @@ class ItemsData: Identifiable {
     var image: String
     var calories: Int
     var selected: Bool
-    var section: String
 
-    init(_ name: String, _ image: String, _ calories: Int, _ selected: Bool, _ section: String) {
+    init(_ name: String, _ image: String, _ calories: Int, _ selected: Bool) {
         self.name = name
         self.image = image
         self.calories = calories
         self.selected = selected
-        self.section = section
     }
 }
 
 struct ApplicationData {
-    var dataSource: UICollectionViewDiffableDataSource<Sections.ID, ItemsData.ID>!
-    var sections: [Sections] = []
-    var items: [ItemsData] = []
+    var dataSource: UICollectionViewDiffableDataSource<Sections, ItemsData.ID>!
+
+    var items: [ItemsData] = [] {
+        didSet {
+            items.sort(by: { $0.name < $1.name })
+        }
+    }
 
     init() {
-        sections.append(contentsOf: [Sections(name: "B"), Sections(name: "C"), Sections(name: "D"), Sections(name: "G"), Sections(name: "J"), Sections(name: "L"), Sections(name: "M"), Sections(name: "O"), Sections(name: "P"), Sections(name: "T"), Sections(name: "Y")])
-        items.append(contentsOf: [ItemsData("Bagels", "bagels", 250, false, "B"), ItemsData("Brownies", "brownies", 466, false, "B"), ItemsData("Butter", "butter", 717, false, "B")])
-        items.append(contentsOf: [ItemsData("Cheese", "cheese", 402, false, "C"), ItemsData("Coffee", "coffee", 0, false, "C"), ItemsData("Cookies", "cookies", 502, false, "C")])
-        items.append(contentsOf: [ItemsData("Donuts", "donuts", 452, false, "D")])
-        items.append(contentsOf: [ItemsData("Granola", "granola", 471, false, "G")])
-        items.append(contentsOf: [ItemsData("Juice", "juice", 23, false, "J")])
-        items.append(contentsOf: [ItemsData("Lemonade", "lemonade", 40, false, "L"), ItemsData("Lettuce", "lettuce", 15, false, "L")])
-        items.append(contentsOf: [ItemsData("Milk", "milk", 42, false, "M")])
-        items.append(contentsOf: [ItemsData("Oatmeal", "oatmeal", 68, false, "O")])
-        items.append(contentsOf: [ItemsData("Potatoes", "potato", 77, false, "P")])
-        items.append(contentsOf: [ItemsData("Tomatoes", "tomato", 18, false, "T")])
-        items.append(contentsOf: [ItemsData("Yogurt", "yogurt", 59, false, "Y")])
+        items.append(contentsOf: [ItemsData("Bagels", "bagels", 250, false), ItemsData("Brownies", "brownies", 466, false), ItemsData("Butter", "butter", 717, false), ItemsData("Cheese", "cheese", 402, false), ItemsData("Coffee", "coffee", 0, false), ItemsData("Cookies", "cookies", 502, false), ItemsData("Donuts", "donuts", 452, false), ItemsData("Granola", "granola", 471, false), ItemsData("Juice", "juice", 23, false), ItemsData("Lemonade", "lemonade", 40, false), ItemsData("Lettuce", "lettuce", 15, false), ItemsData("Milk", "milk", 42, false), ItemsData("Oatmeal", "oatmeal", 68, false), ItemsData("Potatoes", "potato", 77, false), ItemsData("Tomatoes", "tomato", 18, false), ItemsData("Yogurt", "yogurt", 59, false)])
     }
 }
 
 var AppData = ApplicationData()
-

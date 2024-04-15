@@ -25,8 +25,18 @@ class MyCollectionViewController: UICollectionViewController {
                 cell.picture.image = UIImage(named: item.image)
             }
         }
+
         AppData.dataSource = UICollectionViewDiffableDataSource<Sections, ItemsData.ID>(collectionView: collectionView) { (collection, indexPath, itemID) in
             return collection.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemID)
+        }
+
+        let headerRegistration = UICollectionView.SupplementaryRegistration<MyHeader>(elementKind: UICollectionView.elementKindSectionHeader) { headerView, kind, indexPath in
+            headerView.pictureView.image = UIImage(named: "gradientTop")
+            headerView.textView.text = "My Food"
+        }
+
+        AppData.dataSource.supplementaryViewProvider = { view, kind, indexPath in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
     }
 
@@ -38,14 +48,17 @@ class MyCollectionViewController: UICollectionViewController {
     }
 
     func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalWidth(0.2))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 5, trailing: 10)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.2))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
